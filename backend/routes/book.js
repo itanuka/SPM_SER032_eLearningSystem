@@ -1,8 +1,10 @@
 const express = require('express');
 const bookRouter = express.Router();
 
-const {uploadBook} = require('../controllers/bookController.js');
+const {uploadBook, getSingleBookById, getAllBooks} = require('../controllers/bookController.js');
 
 bookRouter.post('/uploadBook', uploadBook);
+bookRouter.get('/getSingleBook/:bookId', getSingleBookById);
+bookRouter.get('/getAllBooks', getAllBooks);
 
-module.exports = uploadBook;
+module.exports = bookRouter;
