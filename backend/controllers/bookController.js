@@ -1,3 +1,4 @@
+const { find } = require('../models/Book.js');
 const Book = require('../models/Book.js');
 
 
@@ -68,5 +69,33 @@ const getAllBooks = async (req, res) => {
 };
 
 
+/**
+ *  update a book details 
+ *  PUT => api/v1/books/updateBookDetails
+ */
 
-module.exports = {uploadBook, getSingleBookById, getAllBooks};
+const updateBookDetails = async (req, res) => {
+    const bookId = req.params.bookId;
+    const {title, author, publishDate, publisher, pages, category, description} = req.body;
+
+    try {
+        const book = await Book.findOne({_id: bookId});
+
+        book.title = title;
+        book.author = author;
+        book.publishDate = publishDate;
+        book.publisher = publisher;
+        book.pages = pages;
+        book.category = category;
+        book.description = description;
+
+        const updatedBook = await book.save();
+        if (updatedBook) res.status(200).json(updatedBook);
+        
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+module.exports = {uploadBook, getSingleBookById, getAllBooks, updateBookDetails};
