@@ -71,7 +71,7 @@ const getAllBooks = async (req, res) => {
 
 /**
  *  update a book details 
- *  PUT => api/v1/books/updateBookDetails
+ *  PUT => api/v1/books/updateBookDetails/:bookId
  */
 
 const updateBookDetails = async (req, res) => {
@@ -97,5 +97,29 @@ const updateBookDetails = async (req, res) => {
     }
 };
 
+/**
+ *  delete a book  
+ *  DELETE => api/v1/books/deleteBook/:bookId
+ */
 
-module.exports = {uploadBook, getSingleBookById, getAllBooks, updateBookDetails};
+const deleteBook = async (req, res) => {
+    const bookId = req.params.bookId;
+
+    try {
+        const deletedBook = await Book.deleteOne({_id: bookId});
+        if(deletedBook) res.status(200).json(deletedBook); 
+        
+    } catch (error) {
+        res.status(500).json({
+            ERR_CODE : error.code,
+            message: "could not find this book"
+        })
+    }
+};
+
+
+
+
+
+
+module.exports = {uploadBook, getSingleBookById, getAllBooks, updateBookDetails, deleteBook};
