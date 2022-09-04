@@ -10,6 +10,11 @@ import { ViewAllStudents } from './components/admin/ViewAllStudents'
 import { ViewAllTeachers } from './components/admin/ViewAllTeachers'
 import { ChangeStudentPassword } from './components/student/ChangeStudentPassword'
 import { ChangeTeacherPassword } from './components/teacher/ChangeTeacherPassword'
+import AddBook from "./components/admin/AddBook";
+import ViewAllBooks from "./components/admin/ViewAllBooks";
+import UpdateBook from "./components/admin/UpdateBook";
+import UserViewAllBooks from "./components/UserViewAllBooks";
+import UserViewBook from "./components/UserViewBook";
 
 
 
@@ -27,6 +32,15 @@ function App() {
           <Route path="/teachers" element={<ViewAllTeachers />}></Route>
           <Route path="/students/changePassword/:id" element={<ChangeStudentPassword />}></Route>
           <Route path="/teachers/changePassword/:id" element={<ChangeTeacherPassword />}></Route>
+
+          {/* Libarary-management */}
+          <Route path="/library/addBook" element = {<AddBook/>}></Route>
+          <Route path="/library/viewAllBooks" element = {<ViewAllBooks/>}></Route>
+          <Route path="/library/viewAllBooks/updateBookDetails/:id" element = {<UpdateBook/>}></Route>
+          <Route path="/library/UserviewAllBooks" element = {<UserViewAllBooks/>}></Route>
+          <Route path="/library/UserViewAllBooks/getBookDetails/:id" element = {<UserViewBook/>}></Route>
+          
+          {/* Libarary-management */}
         </Routes>
       </BrowserRouter>
     </div>
