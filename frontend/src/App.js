@@ -10,6 +10,7 @@ import { ViewAllStudents } from './components/admin/ViewAllStudents'
 import { ViewAllTeachers } from './components/admin/ViewAllTeachers'
 import { ChangeStudentPassword } from './components/student/ChangeStudentPassword'
 import { ChangeTeacherPassword } from './components/teacher/ChangeTeacherPassword'
+import AddBook from "./components/admin/AddBook";
 
 
 
@@ -27,6 +28,10 @@ function App() {
           <Route path="/teachers" element={<ViewAllTeachers />}></Route>
           <Route path="/students/changePassword/:id" element={<ChangeStudentPassword />}></Route>
           <Route path="/teachers/changePassword/:id" element={<ChangeTeacherPassword />}></Route>
+
+          {/* Libarary-management */}
+          <Route path="/library/addBook" element = {<AddBook/>}></Route>
+          {/* Libarary-management */}
         </Routes>
       </BrowserRouter>
     </div>
