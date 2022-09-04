@@ -38,7 +38,9 @@ function UserViewAllBooks() {
                                     {
                                         <div class="col mb-4">
                                             <div class="card h-100">
-                                                <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg" class="card-img-top" alt="..." />
+                                                <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
+                                                    className="card-img-top" alt="..."
+                                                />
                                                 <div class="card-body">
                                                     <h5 class="card-title">{book.title}</h5>
                                                     <h6 class="card-text">Author: {book.author}</h6>
@@ -46,10 +48,11 @@ function UserViewAllBooks() {
                                                     <button
                                                         onClick={
                                                             () => {
-                                                                navigate(`/library/viewAllBooks/getBookDetails/${book._id}`)
+                                                                navigate(`/library/UserViewAllBooks/getBookDetails/${book._id}`)
                                                             }
                                                         }
-                                                        href="#" class="btn btn-primary mt-3">View More
+                                                        className="btn btn-primary mt-3">
+                                                        View More
                                                     </button>
                                                 </div>
                                             </div>
