@@ -12,6 +12,7 @@ import { ChangeStudentPassword } from './components/student/ChangeStudentPasswor
 import { ChangeTeacherPassword } from './components/teacher/ChangeTeacherPassword'
 import AddBook from "./components/admin/AddBook";
 import ViewAllBooks from "./components/admin/ViewAllBooks";
+import UpdateBook from "./components/admin/UpdateBook";
 
 
 
@@ -33,6 +34,7 @@ function App() {
           {/* Libarary-management */}
           <Route path="/library/addBook" element = {<AddBook/>}></Route>
           <Route path="/library/viewAllBooks" element = {<ViewAllBooks/>}></Route>
+          <Route path="/library/viewAllBooks/updateBookDetails/:id" element = {<UpdateBook/>}></Route>
           {/* Libarary-management */}
         </Routes>
       </BrowserRouter>

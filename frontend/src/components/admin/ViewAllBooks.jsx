@@ -31,7 +31,8 @@ function ViewAllBooks() {
 
     return (
         <div>
-            <div className="container mt-5">
+             <div className="container" style={{ height: "60px" }}></div>
+            <div className="container">
                 <h1 className="text-center">View All Books</h1>
             </div>
             <div className="container mt-5">
@@ -68,7 +69,7 @@ function ViewAllBooks() {
                                                     <button className="btn btn-warning p-1"
                                                         onClick={
                                                             () => {
-                                                                navigate(`/library/updateBookDetails/${book._id}`)
+                                                                navigate(`/library/viewAllBooks/updateBookDetails/${book._id}`)
                                                             }
                                                         }>Update</button>
                                                 </td>
