@@ -16,8 +16,6 @@ connection.once("open", () => {
   console.log("DATABASE CONNECTION SUCCESS ...");
 });
 
-
-
 app.listen(process.env.PORT, () => {
   console.log(`SERVER RUN ON ${process.env.PORT}`);
 });
