@@ -15,6 +15,8 @@ import ViewAllBooks from "./components/admin/ViewAllBooks";
 import UpdateBook from "./components/admin/UpdateBook";
 import UserViewAllBooks from "./components/UserViewAllBooks";
 import UserViewBook from "./components/UserViewBook";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 
 
@@ -22,6 +24,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/registerStudent" element={<RegisterStudent />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -34,15 +37,17 @@ function App() {
           <Route path="/teachers/changePassword/:id" element={<ChangeTeacherPassword />}></Route>
 
           {/* Libarary-management */}
-          <Route path="/library/addBook" element = {<AddBook/>}></Route>
-          <Route path="/library/viewAllBooks" element = {<ViewAllBooks/>}></Route>
-          <Route path="/library/viewAllBooks/updateBookDetails/:id" element = {<UpdateBook/>}></Route>
-          <Route path="/library/UserviewAllBooks" element = {<UserViewAllBooks/>}></Route>
-          <Route path="/library/UserViewAllBooks/getBookDetails/:id" element = {<UserViewBook/>}></Route>
-          
+          <Route path="/library/addBook" element={<AddBook />}></Route>
+          <Route path="/library/viewAllBooks" element={<ViewAllBooks />}></Route>
+          <Route path="/library/viewAllBooks/updateBookDetails/:id" element={<UpdateBook />}></Route>
+          <Route path="/library/UserviewAllBooks" element={<UserViewAllBooks />}></Route>
+          <Route path="/library/UserViewAllBooks/getBookDetails/:id" element={<UserViewBook />}></Route>
+
           {/* Libarary-management */}
         </Routes>
+        <Footer />
       </BrowserRouter>
+
     </div>
   );
 }
