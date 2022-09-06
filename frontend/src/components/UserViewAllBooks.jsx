@@ -46,10 +46,10 @@ function UserViewAllBooks() {
                                         <div >
                                             {
                                                 <div class="col mb-4">
-                                                    <div class="card h-100" style={{width:"300px", height:"160px"}}>
+                                                    <div class="card h-100" >
                                                         <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
                                                             className="card-img-top" alt="..."
-                                                            style={{width:"300px", height:"220px"}}
+                                                            // style={{width:"300px", height:"220px"}}
                                                         />
                                                         <div class="card-body">
                                                             <h5 class="card-title">{book.title}</h5>

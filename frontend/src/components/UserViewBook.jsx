@@ -59,11 +59,12 @@ function UserViewBook() {
                         <div className="row">
                             <div className="col-md-4"></div>
                             <div className="col-md-5">
-                            <div class="card h-100" style={{width:"350px", height:"160px"}}>
+                            <div class="card h-100" >
                                     <div class="col mb-4">
                                         <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
-                                            className="card-img-top mt-3 ml-3"
-                                            style={{width:"280px", height:"220px"}} alt="..."
+                                            className="card-img-top mt-3"
+                                            // style={{width:"280px", height:"220px"}} 
+                                            alt="..."
                                         />
                                         <div class="card-body">
                                             {/* <h5 class="card-title">{book.title}</h5> */}
