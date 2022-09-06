@@ -16,7 +16,7 @@ const TeacherRouter = require("./routes/teacher");
 
 
 app.use("/api/v1/students", StudentRouter);
-app.use("/api/v1/teacher", TeacherRouter);
+app.use("/api/v1/teachers", TeacherRouter);
 
 
 module.exports = app;

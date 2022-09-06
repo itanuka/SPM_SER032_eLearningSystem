@@ -6,7 +6,6 @@ const {
     updateStudent,
     deleteStudent,
     getStudent,
-    getStudentUsingUserID
 } = require('../controllers/studentController');
 
 
