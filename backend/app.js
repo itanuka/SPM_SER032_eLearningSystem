@@ -13,10 +13,12 @@ app.use(bodyParser.json());
 
 const StudentRouter = require("./routes/student");
 const TeacherRouter = require("./routes/teacher");
+const LoginRouter = require("./routes/login");
 
 
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/teachers", TeacherRouter);
+app.use("/api/v1/login", LoginRouter);
 
 
 module.exports = app;

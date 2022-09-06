@@ -1,8 +1,11 @@
+const bcrypt = require("bcryptjs");
 const Teacher = require("../models/Teacher");
 
 exports.registerTeacher = async (req, res) => {
 
-    const { firstName, lastName, gender, dob, contactNo, email, address, qualifications, password } = req.body;
+    let { firstName, lastName, gender, dob, contactNo, email, address, qualifications, password } = req.body;
+
+    password = await bcrypt.hash(password, 10);
 
     const newTeacher = new Teacher({
         firstName,
@@ -64,7 +67,7 @@ exports.updateTeacher = async (req, res) => {
 
     let id = req.params.id;
 
-    const { firstName, lastName, gender, dob, contactNo, email, address, qualifications, password } = req.body;
+    const { firstName, lastName, gender, dob, contactNo, email, address, qualifications } = req.body;
 
     const updateTeacher = {
         firstName,
@@ -74,8 +77,7 @@ exports.updateTeacher = async (req, res) => {
         contactNo,
         email,
         address,
-        qualifications,
-        password
+        qualifications
     };
 
     try {

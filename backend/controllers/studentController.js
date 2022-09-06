@@ -1,8 +1,11 @@
+const bcrypt = require("bcryptjs");
 const Student = require("../models/Student.js");
 
 exports.registerStudent = async (req, res) => {
 
-    const { firstName, lastName, gender, dob, contactNo, email, address, password } = req.body;
+    let { firstName, lastName, gender, dob, contactNo, email, address, password } = req.body;
+
+    password = await bcrypt.hash(password, 10);
 
     const newStudent = new Student({
         firstName,
@@ -63,7 +66,7 @@ exports.updateStudent = async (req, res) => {
 
     let id = req.params.id;
 
-    const { firstName, lastName, gender, dob, contactNo, email, address, password } = req.body;
+    const { firstName, lastName, gender, dob, contactNo, email, address } = req.body;
 
     const updateStudent = {
         firstName,
@@ -72,8 +75,7 @@ exports.updateStudent = async (req, res) => {
         dob,
         contactNo,
         email,
-        address,
-        password
+        address
     };
 
     try {
