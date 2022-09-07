@@ -26,7 +26,8 @@ exports.login = async (req, res) => {
 
             return res.json({
                 status: "ok",
-                token: token
+                token: token,
+                role: "Student"
             });
         }
         else {
@@ -54,7 +55,8 @@ exports.login = async (req, res) => {
 
                 return res.json({
                     status: "ok",
-                    token: token
+                    token: token,
+                    role: "Teacher"
                 });
             }
             else {
