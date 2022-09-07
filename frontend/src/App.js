@@ -20,6 +20,10 @@ import UserViewAllBooks from "./components/UserViewAllBooks";
 import UserViewBook from "./components/UserViewBook";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import AdminHome from "./components/admin/AdminHome";
+import StudentHome from "./components/student/StudentHome";
+import TeacherHome from "./components/teacher/TeacherHome";
+
 
 
 
@@ -49,6 +53,10 @@ const App = () => {
         <UserContext.Provider value={{ user, setUser, token }} >
           <Header />
           <Routes>
+          <Route path="/adminHome" element={<AdminHome />}></Route>
+          <Route path="/studentHome" element={<StudentHome />}></Route>
+          <Route path="/teacherHome" element={<TeacherHome />}></Route>
+
             <Route path="/registerStudent" element={<RegisterStudent />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/students/update/:id" element={<UpdateStudent />}></Route>
