@@ -12,6 +12,7 @@ function AddBook() {
     const [pages, setPages] = useState(0);
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
+    const [file, setFile] = useState();
 
     const navigate = useNavigate();
 
@@ -24,16 +25,18 @@ function AddBook() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const book = {
-            title,
-            author,
-            publishDate,
-            publisher,
-            pages,
-            category,
-            description
-        }
-        await axios.post('http://localhost:4000/api/v1/books/uploadBook', book)
+        const data = new FormData();
+        data.append("title", title);
+        data.append("author", author);
+        data.append("publishDate", publishDate);
+        data.append("publisher", publisher);
+        data.append("pages", pages);
+        data.append("category", category);
+        data.append("description", description);
+        data.append("file", file);
+
+
+        await axios.post('http://localhost:4000/api/v1/books/uploadBook', data)
             .then((res) => {
                 console.log(res);
             })
@@ -157,6 +160,18 @@ function AddBook() {
                                                         className="form-control"
                                                         value={description}
                                                         onChange={(e) => { setDescription(e.target.value) }}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="form-row">
+                                                <div className="col">
+                                                    <label htmlFor="inputFile">Upload Book</label>
+                                                    <input
+                                                        type="file"
+                                                        className="form-control"
+                                                        onChange={e => { setFile(e.target.files[0]) }}
                                                         required
                                                     />
                                                 </div>
