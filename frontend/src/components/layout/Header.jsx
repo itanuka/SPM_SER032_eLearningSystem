@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode'
 import '../style/header.css'
+import '../style/header2.css'
 import Swal from 'sweetalert2';
 import { UserContext } from '../../UserContext';
 
@@ -57,7 +58,7 @@ export const Header = () => {
                             </li>
 
 
-                            {user ?
+                            {/* {user ?
                                 <>
                                     <li class="nav-item">
                                         <Link class="nav-link" to="#">{user.email}</Link>
@@ -74,11 +75,44 @@ export const Header = () => {
                                     <li class="nav-item">
                                         <Link class="nav-link" to="/registerStudent">Sign Up</Link>
                                     </li>
-                                </>}
+                                </>} */}
 
 
 
                         </ul>
+
+                        <form class="form-inline my-2 my-lg-0 ">
+                            {user ? (
+                                <div className="ml-4 dropdown d-inline ">
+                                    <Link to="#!" className="btn dropdown-toggle text-white " type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <figure className="avatar avatar-nav">
+                                            <img
+                                                // src={user.avatar && user.avatar.url}
+                                                src='https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg'
+                                                alt={user && user.first_name}
+                                                className="rounded-circle "
+                                            />
+                                        </figure>
+                                        <span>{user && user.first_name}</span>
+                                    </Link>
+
+                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownMenuButton">
+
+                                        {user && user.role === 'admin' && (
+                                            <Link className="dropdown-item" to="/admin/Dashboard">Dashboard</Link>
+                                        )}
+                                        {user.role !== 'admin' && (
+                                            <Link className="dropdown-item" to="/listbill/" >My Payments</Link>
+                                        )}
+                                        <Link className="dropdown-item" to="/me">Profile</Link>
+                                        <Link className="dropdown-item text-danger" to="/" onClick={logout}>
+                                            Logout
+                                        </Link>
+                                    </div>
+
+                                </div>
+                            ) : <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none' }} >Sign In</a></button>}
+                        </form>
                     </div>
                 </nav>
             </header>
