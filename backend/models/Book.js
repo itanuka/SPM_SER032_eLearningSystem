@@ -28,6 +28,12 @@ const BookSchema = new mongoose.Schema({
     description:{
         type:String,
         require:true
+    },
+    file_path: {
+        type: String
+    },
+    file_mimetype: {
+        type: String
     }
 });
 
