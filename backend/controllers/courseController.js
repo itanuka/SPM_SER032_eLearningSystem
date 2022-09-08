@@ -1,48 +1,59 @@
+const { find } = require('../models/Course');
 const Course = require('../models/Course')
-const APIFeatures = require('../utils/apiFeatures')
-
-exports.newCourse = async (req, res, next) => {
-
-    const course = await Course.create(req.body);
-
-    res.status(201).json({
-        success: true,
-        course
-    })
-}
-
-exports.getCourses =  async (req, res, next) => {
-
-    // const resPerPage = 4;
-    // const courseCount = await Course.countDocuments()
-
-    const apiFeatures = new APIFeatures(Course.find(), req.query)
-        //.search()
-        //.filter()
-       // .pagination(resPerPage)
-
-    const courses = await apiFeatures.query;
 
 
-    res.status(200).json({
-        success: true,
-       // courseCount,
-       // resPerPage,
-        courses
-    })
+// create course
 
-}
+const createCourse = async (req, res) =>{
 
-exports.getSingleCourse = async (req, res, next) => {
+    const {course_name, author_name, description, category, image} = req.body;
 
-    const course = await Course.findById(req.params.id);
-
-    if(!course) {
-        return next(new ErrorHandler('Course not found', 404));
+        try {
+            const course = await Course.create({
+                course_name,
+                author_name,
+                description,
+                category,
+                
+            });
+    
+            if(course) res.status(201).json(course);
+    } catch (error) {
+        res.status(400).json({
+            error
+        })
     }
-
-    res.status(200).json({
-        success: true,
-        course
-    })
 }
+
+//get all Courses
+
+const getAllCourses = async (req, res)=>{
+
+    try {
+        const courses = await Course.find({});
+        if(courses) res.status(200).json(courses)
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+//get Single Courses
+
+const getSingleCourse = async (req, res ) =>{
+
+    const id = req.params.id;
+    try {
+        const course = await Course.findOne({_id:id})
+        if(course) res.status(200).json(course);
+
+    } catch (error) {
+        res.status(500).json({
+            ERR_CODE : error.code,
+            message: "could not find this Course"
+        })
+    }
+}
+
+
+module.exports = {createCourse, getAllCourses, getSingleCourse}

@@ -15,6 +15,9 @@ import ViewAllBooks from "./components/admin/ViewAllBooks";
 import UpdateBook from "./components/admin/UpdateBook";
 import UserViewAllBooks from "./components/UserViewAllBooks";
 import UserViewBook from "./components/UserViewBook";
+import StudentViewAllCourses from "./components/student/StudentViewAllCourses";
+import StudentViewCourse from "./components/student/StudentViewCourse";
+import ViewEnrolledCourses from "./components/student/ViewEnrolledCourses";
 
 
 
@@ -41,6 +44,14 @@ function App() {
           <Route path="/library/UserViewAllBooks/getBookDetails/:id" element = {<UserViewBook/>}></Route>
           
           {/* Libarary-management */}
+
+
+          {/* Course-management */}
+          <Route path="/course/ViewAllCourses" element = {<StudentViewAllCourses/>}></Route>
+          <Route path="/course/ViewSingleCourse/:id" element = {<StudentViewCourse/>}></Route>
+          <Route path="/course/ViewEnrolledCourses" element = {<ViewEnrolledCourses/>}></Route>
+
+          
         </Routes>
       </BrowserRouter>
     </div>
