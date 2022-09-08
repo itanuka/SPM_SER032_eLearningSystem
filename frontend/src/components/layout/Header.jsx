@@ -85,10 +85,13 @@ function Header() {
                             <li class="nav-item">
                                 <Link class="nav-link" to="">Contact Us</Link>
                             </li>
+                            <li class="nav-item">
+                               
+                            {user && 
+                                <Link class="nav-link" to="" style={{ textDecoration: 'none'}}>{user.email}</Link>
+                            }
 
-                            {user && <li class="nav-item">
-                                <Link class="nav-link" to="">{user.email}</Link>
-                            </li>}
+                            </li>
 
 
 
@@ -119,6 +122,7 @@ function Header() {
                         </ul>
 
                         <form class="form-inline my-2 my-lg-0 ">
+                      
                             {user ? (
                                 <div className="ml-4 dropdown d-inline ">
                                     {filePath && <Link to="#!" className="btn dropdown-toggle text-white " type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -151,8 +155,8 @@ function Header() {
                                     </div>
 
                                 </div>
-                            ) : <div> <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none' }} >Sign In</a></button>
-                                <button type="button" class="btn btn-primary"><a class="text-light" href="/registerStudent" style={{ textDecoration: 'none' }} >Create an Account</a></button>
+                            ) : <div style={{ marginRight: "-30em", marginLeft: "30em" }} > <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none'}} >Sign In</a></button>
+                                {/* <button type="button" class="btn btn-primary"><a class="text-light" href="/registerStudent" style={{ textDecoration: 'none' }} >Create an Account</a></button> */}
                             </div>
 
                             }
