@@ -13,6 +13,7 @@ function UpdateBook() {
     const paramID = useParams("");
 
     const [title, setTitle] = useState("");
+    const [isbn, setIsbn] = useState("");
     const [author, setAuthor] = useState("");
     const [publishDate, setPublishDate] = useState("");
     const [publisher, setPublisher] = useState("");
@@ -31,6 +32,7 @@ function UpdateBook() {
 
         const book = {
             title,
+            isbn,
             author,
             publishDate,
             publisher,
@@ -51,6 +53,7 @@ function UpdateBook() {
         navigate("/library/viewAllBooks");
 
         setTitle("");
+        setIsbn("");
         setAuthor("");
         setPublishDate("");
         setPublisher("");
@@ -64,6 +67,7 @@ function UpdateBook() {
         axios.get(`http://localhost:4000/api/v1/books/getSingleBook/` + paramID.id)
             .then((res) => {
                 setTitle(res.data.title);
+                setIsbn(res.data.isbn);
                 setAuthor(res.data.author);
                 setPublishDate(res.data.publishDate);
                 setPublisher(res.data.publisher);
@@ -88,7 +92,7 @@ function UpdateBook() {
                         <div className="row">
 
                             <div className="col-md">
-                                <div className="card" style={{ maxWidth: "50%", marginLeft:"17em" }}>
+                                <div className="card" style={{ maxWidth: "50%", marginLeft: "17em" }}>
                                     <div className="card-body">
                                         <h2 className="text-center">Update Book Details</h2>
 
@@ -100,8 +104,25 @@ function UpdateBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="book title"
                                                         value={title}
                                                         onChange={(e) => { setTitle(e.target.value) }}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="form-row">
+                                                <div className="col">
+                                                    <label htmlFor="inputIsbn">ISBN</label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        pattern="[0-9]{13}" 
+                                                        title = "ISBN must contain 13 numbers"
+                                                        placeholder="0000000000000"
+                                                        value={isbn}
+                                                        onChange={(e) => { setIsbn(e.target.value) }}
                                                         required
                                                     />
                                                 </div>
@@ -113,6 +134,7 @@ function UpdateBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="author"
                                                         value={author}
                                                         onChange={(e) => { setAuthor(e.target.value) }}
                                                         required
@@ -139,6 +161,7 @@ function UpdateBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="publisher"
                                                         value={publisher}
                                                         onChange={(e) => { setPublisher(e.target.value) }}
                                                         required
@@ -168,10 +191,17 @@ function UpdateBook() {
                                                         required
                                                         className="form-control">
                                                         {/* <option selected>Choose...</option> */}
-                                                        <option value={"Category 01"}>Category 01</option>
-                                                        <option value={"Category 02"}>Category 02</option>
-                                                        <option value={"Category 03"}>Category 03</option>
-                                                        <option value={"Category 04"}>Category 04</option>
+                                                        <option value={"General Books"}>General Books</option>
+                                                        <option value={"Philosophy & Psychology"}>Philosophy & Psychology</option>
+                                                        <option value={"Religion"}>Religion</option>
+                                                        <option value={"Social Sciences"}>Social Sciences</option>
+                                                        <option value={"Languages"}>Languages</option>
+                                                        <option value={"Natural Sciences & Mathematics"}>Natural Sciences & Mathematics</option>
+                                                        <option value={"Technology"}>Technology</option>
+                                                        <option value={"Art"}>Art</option>
+                                                        <option value={"Literature"}>Literature</option>
+                                                        <option value={"Biography, History and Geography"}>Biography, History and Geography</option>
+                                                        <option value={"Library Science"}>Library Science</option>
                                                         <option value={"Other"}> Other</option>
                                                     </select>
                                                 </div>
@@ -183,6 +213,7 @@ function UpdateBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="description"
                                                         value={description}
                                                         onChange={(e) => { setDescription(e.target.value) }}
                                                         required

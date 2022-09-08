@@ -49,6 +49,7 @@ function ViewAllBooks() {
                                     <thead>
                                         <th>Id</th>
                                         <th>Title</th>
+                                        <th>ISBN</th>
                                         <th>Author</th>
                                         <th>Publish Date</th>
                                         <th>Publisher</th>
@@ -65,6 +66,7 @@ function ViewAllBooks() {
                                                     <tr>
                                                         <td>{book._id}</td>
                                                         <td>{book.title}</td>
+                                                        <td>{book.isbn}</td>
                                                         <td>{book.author}</td>
                                                         <td>{book.publishDate}</td>
                                                         <td>{book.publisher}</td>

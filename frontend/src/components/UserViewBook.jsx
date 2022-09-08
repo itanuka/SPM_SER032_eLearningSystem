@@ -14,6 +14,7 @@ function UserViewBook() {
     const { id } = useParams();
 
     const [title, setTitle] = useState(book.title);
+    const [isbn, setIsbn] = useState(book.isbn);
     const [author, setAuthor] = useState(book.author);
     const [publishDate, setPublishDate] = useState(book.publishDate);
     const [publisher, setPublisher] = useState(book.publisher);
@@ -59,7 +60,7 @@ function UserViewBook() {
                         <div className="row">
                             <div className="col-md-4"></div>
                             <div className="col-md-5">
-                            <div class="card h-100" >
+                                <div class="card h-100" >
                                     <div class="col mb-4">
                                         <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
                                             className="card-img-top mt-3"
@@ -68,6 +69,7 @@ function UserViewBook() {
                                         />
                                         <div class="card-body">
                                             {/* <h5 class="card-title">{book.title}</h5> */}
+                                            <h6 class="card-text">ISBN: {book.isbn}</h6>
                                             <h6 class="card-text">Author: {book.author}</h6>
                                             <h6 class="card-text">Publish Date: {book.publishDate}</h6>
                                             <h6 class="card-text">Publisher: {book.publisher}</h6>
