@@ -25,12 +25,6 @@ const EnrolledSchema = new Schema({
 
     }],
 
-    // ref eka poddak check krl blnna
-    // studentID: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: 'Student'
-    // },
 
     // studentName:{
     //     type: mongoose.Schema.Types.String,
