@@ -10,7 +10,7 @@ function StudentViewAllCourses() {
 
     const loadCourses = async () => {
         await axios.get("http://localhost:4000/api/v1/courses/getAllCourses")
-        // .then(res=>setCourses(res.data.courses))
+        
             .then((res) => {
                 setCourses(res.data);
                 console.log(res);
