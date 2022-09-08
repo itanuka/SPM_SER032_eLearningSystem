@@ -200,6 +200,17 @@ function AddBook() {
                                                     <input
                                                         type="file"
                                                         className="form-control"
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="form-row">
+                                                <div className="col">
+                                                    <label htmlFor="inputFile">Cover Photo</label>
+                                                    <input
+                                                        type="file"
+                                                        className="form-control"
                                                         onChange={e => { setFile(e.target.files[0]) }}
                                                         required
                                                     />
