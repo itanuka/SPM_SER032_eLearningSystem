@@ -8,11 +8,12 @@ const Book = require('../models/Book.js');
  */
 
 const uploadBook = async (req, res) => {
-    const {title, author, publishDate, publisher, pages, category, description} = req.body;
+    const { title, isbn, author, publishDate, publisher, pages, category, description } = req.body;
 
     try {
         const book = await Book.create({
             title,
+            isbn,
             author,
             publishDate,
             publisher,
@@ -21,8 +22,8 @@ const uploadBook = async (req, res) => {
             description
         });
 
-        if(book) res.status(201).json(book);
-        
+        if (book) res.status(201).json(book);
+
     } catch (error) {
         res.status(400).json({
             error
@@ -40,12 +41,12 @@ const getSingleBookById = async (req, res) => {
     const bookId = req.params.bookId;
 
     try {
-        const book = await Book.findOne({_id: bookId});
-        if(book) res.status(200).json(book);
-        
+        const book = await Book.findOne({ _id: bookId });
+        if (book) res.status(200).json(book);
+
     } catch (error) {
         res.status(500).json({
-            ERR_CODE : error.code,
+            ERR_CODE: error.code,
             message: "could not find this book"
         })
     }
@@ -58,10 +59,10 @@ const getSingleBookById = async (req, res) => {
  */
 
 const getAllBooks = async (req, res) => {
-  
+
     try {
         const books = await Book.find({});
-        if(books) res.status(200).json(books);
+        if (books) res.status(200).json(books);
 
     } catch (error) {
         console.error(error);
@@ -76,12 +77,13 @@ const getAllBooks = async (req, res) => {
 
 const updateBookDetails = async (req, res) => {
     const bookId = req.params.bookId;
-    const {title, author, publishDate, publisher, pages, category, description} = req.body;
+    const { title, isbn, author, publishDate, publisher, pages, category, description } = req.body;
 
     try {
-        const book = await Book.findOne({_id: bookId});
+        const book = await Book.findOne({ _id: bookId });
 
         book.title = title;
+        book.isbn = isbn;
         book.author = author;
         book.publishDate = publishDate;
         book.publisher = publisher;
@@ -91,7 +93,7 @@ const updateBookDetails = async (req, res) => {
 
         const updatedBook = await book.save();
         if (updatedBook) res.status(200).json(updatedBook);
-        
+
     } catch (error) {
         console.error(error);
     }
@@ -106,12 +108,12 @@ const deleteBook = async (req, res) => {
     const bookId = req.params.bookId;
 
     try {
-        const deletedBook = await Book.deleteOne({_id: bookId});
-        if(deletedBook) res.status(200).json(deletedBook); 
-        
+        const deletedBook = await Book.deleteOne({ _id: bookId });
+        if (deletedBook) res.status(200).json(deletedBook);
+
     } catch (error) {
         res.status(500).json({
-            ERR_CODE : error.code,
+            ERR_CODE: error.code,
             message: "could not find this book"
         })
     }
@@ -122,4 +124,4 @@ const deleteBook = async (req, res) => {
 
 
 
-module.exports = {uploadBook, getSingleBookById, getAllBooks, updateBookDetails, deleteBook};
+module.exports = { uploadBook, getSingleBookById, getAllBooks, updateBookDetails, deleteBook };

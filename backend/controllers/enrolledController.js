@@ -1,23 +1,3 @@
-// const Enrolled = require('../models/EnrolledCourse')
-// const Course = require('../models/Course')
-
-// exports.newEnroll =  async (req, res, next) => {
-//     const{ enrolledItems } = req.body;
-
-//     const enroll = await Enrolled.create({
-
-//         // userID: req.user._id,
-//         // customerName: req.user.first_name + " " + req.user.last_name,
-//         enrolledItems
-
-//     })
-
-
-//     res.status(200).json({
-//         success: true,
-//         enroll
-//     })
-// }
 
 const Enrolled = require("../models/EnrolledCourse")
 const Course =require("../models/Course")
@@ -33,4 +13,33 @@ const newEnroll = async (req, res) => {
     }
 }
 
-module.exports = { newEnroll }
+const allEnrolled = async (req, res) => {
+    try {
+        const enrolledList = await Enrolled.find({})
+        res.json(enrolledList)
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+const singleEnrolledItem = async (req, res) => {
+    try {
+        const id = req.params.id
+        const enrolledItem = await Enrolled.findOne({_id: id})
+        res.json(enrolledItem)
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+const deleteEnrolledCourse = async (req, res) =>{
+    try {
+        const id = req.params.id;
+        const deleteCourse = await Enrolled.deleteOne({_id:id})
+        res.json(deleteCourse);
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+module.exports = { newEnroll, allEnrolled, singleEnrolledItem , deleteEnrolledCourse}

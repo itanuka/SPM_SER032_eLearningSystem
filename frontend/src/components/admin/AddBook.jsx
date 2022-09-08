@@ -6,6 +6,7 @@ import AdminSideBar from "../layout/AdminSideBar";
 
 function AddBook() {
     const [title, setTitle] = useState("");
+    const [isbn, setIsbn] = useState("");
     const [author, setAuthor] = useState("");
     const [publishDate, setPublishDate] = useState("");
     const [publisher, setPublisher] = useState("");
@@ -27,6 +28,7 @@ function AddBook() {
 
         const data = new FormData();
         data.append("title", title);
+        data.append("isbn", isbn);
         data.append("author", author);
         data.append("publishDate", publishDate);
         data.append("publisher", publisher);
@@ -75,8 +77,25 @@ function AddBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="book title"
                                                         value={title}
                                                         onChange={(e) => { setTitle(e.target.value) }}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="form-row">
+                                                <div className="col">
+                                                    <label htmlFor="inputIsbn">ISBN</label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        value={isbn}
+                                                        pattern="[0-9]{13}"
+                                                        placeholder="0000000000000"
+                                                        title="ISBN must contain 13 numbers"
+                                                        onChange={(e) => { setIsbn(e.target.value) }}
                                                         required
                                                     />
                                                 </div>
@@ -88,6 +107,7 @@ function AddBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="author"
                                                         value={author}
                                                         onChange={(e) => { setAuthor(e.target.value) }}
                                                         required
@@ -114,6 +134,7 @@ function AddBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="publisher"
                                                         value={publisher}
                                                         onChange={(e) => { setPublisher(e.target.value) }}
                                                         required
@@ -143,10 +164,17 @@ function AddBook() {
                                                         required
                                                         className="form-control">
                                                         <option selected>Choose...</option>
-                                                        <option value={"Category 01"}>Category 01</option>
-                                                        <option value={"Category 02"}>Category 02</option>
-                                                        <option value={"Category 03"}>Category 03</option>
-                                                        <option value={"Category 04"}>Category 04</option>
+                                                        <option value={"General Books"}>General Books</option>
+                                                        <option value={"Philosophy & Psychology"}>Philosophy & Psychology</option>
+                                                        <option value={"Religion"}>Religion</option>
+                                                        <option value={"Social Sciences"}>Social Sciences</option>
+                                                        <option value={"Languages"}>Languages</option>
+                                                        <option value={"Natural Sciences & Mathematics"}>Natural Sciences & Mathematics</option>
+                                                        <option value={"Technology"}>Technology</option>
+                                                        <option value={"Art"}>Art</option>
+                                                        <option value={"Literature"}>Literature</option>
+                                                        <option value={"Biography, History and Geography"}>Biography, History and Geography</option>
+                                                        <option value={"Library Science"}>Library Science</option>
                                                         <option value={"Other"}> Other</option>
                                                     </select>
                                                 </div>
@@ -158,6 +186,7 @@ function AddBook() {
                                                     <input
                                                         type="text"
                                                         className="form-control"
+                                                        placeholder="description"
                                                         value={description}
                                                         onChange={(e) => { setDescription(e.target.value) }}
                                                         required

@@ -28,7 +28,7 @@ function UserViewAllBooks() {
     return (
         <div>
 
-            <div className="row" style={{maxWidth: "100%"}}>
+            <div className="row" style={{ maxWidth: "100%" }}>
                 <div className="col-md-2">
                     <UserSideBar />
                 </div>
@@ -49,10 +49,11 @@ function UserViewAllBooks() {
                                                     <div class="card h-100" >
                                                         <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
                                                             className="card-img-top" alt="..."
-                                                            // style={{width:"300px", height:"220px"}}
+                                                        // style={{width:"300px", height:"220px"}}
                                                         />
                                                         <div class="card-body">
                                                             <h5 class="card-title">{book.title}</h5>
+                                                            <h5 class="card-title">ISBN: {book.isbn}</h5>
                                                             <h6 class="card-text">Author: {book.author}</h6>
                                                             <h6 class="card-text">Publish Date: {book.publishDate}</h6>
                                                             <button
