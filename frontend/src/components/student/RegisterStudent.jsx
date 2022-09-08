@@ -14,6 +14,7 @@ export const RegisterStudent = () => {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [file, setFile] = useState();
 
   const navigate = useNavigate();
 
@@ -22,19 +23,21 @@ export const RegisterStudent = () => {
 
     if (password == confirmPassword) {
 
-      const newStudent = {
-        firstName,
-        lastName,
-        gender,
-        dob,
-        contactNo,
-        email,
-        address,
-        password
-      };
+      const data = new FormData();
+
+      data.append("firstName", firstName);
+      data.append("lastName", lastName);
+      data.append("gender", gender);
+      data.append("dob", dob);
+      data.append("contactNo", contactNo);
+      data.append("email", email);
+      data.append("address", address);
+      data.append("password", password);
+      data.append("file", file);
+
 
       try {
-        const res = await axios.post('http://localhost:4000/api/v1/students/', newStudent);
+        const res = await axios.post('http://localhost:4000/api/v1/students/', data);
 
         Swal.fire({
           title: 'Registered Successfully',
@@ -196,6 +199,18 @@ export const RegisterStudent = () => {
                         className="form-control"
                         value={confirmPassword}
                         onChange={(e) => { setConfirmPassword(e.target.value) }}
+                        required
+                      />
+                    </div>
+                  </div><br />
+
+                  <div className="form-row">
+                    <div className="col">
+                      <label htmlFor="inputFile">Profile Picture</label>
+                      <input
+                        type="file"
+                        className="form-control"
+                        onChange={e => { setFile(e.target.files[0]) }}
                         required
                       />
                     </div>
