@@ -89,12 +89,12 @@ export const Login = () => {
   return (
     <div>
       <div className="container" style={{ height: "100px" }}></div>
-      <div className="container">
+      <div className="container"style={{ marginBottom: "341px" }}>
         <div className="row">
-          <div className="col-md-2"></div>
+          <div className="col-md-3"></div>
 
-          <div className="col-md-8">
-            <div className="card">
+          <div className="col-md-6">
+            <div className="card" style={{ marginTop: "60px" }}>
               <div className="card-body">
                 <h2 class="mb-4 text-center">Sign In</h2>
 
@@ -154,7 +154,7 @@ export const Login = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-2"></div>
+          <div className="col-md-3"></div>
         </div>
       </div>
 

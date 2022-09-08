@@ -51,7 +51,7 @@ function ViewAllBooks() {
                                         <th>Title</th>
                                         <th>ISBN</th>
                                         <th>Author</th>
-                                        <th>Publish Date</th>
+                                        <th>PublishDate</th>
                                         <th>Publisher</th>
                                         <th>Pages</th>
                                         <th>Category</th>
