@@ -19,10 +19,7 @@ function ViewEnrolledCourses() {
 
     // async function getEnrolledCourseDetails(course) {
     //     axios.get(`http://localhost:4000/api/v1/courses/getSingleCourse/${course}`)
-    //     .then(res => setName(res.data))
-    //     .catch(err=>console.error(err))
-    // }
-
+   
     useEffect(()=>{
         getAllEnrolledCourses()
     }, [])
