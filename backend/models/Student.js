@@ -34,6 +34,12 @@ const StudentSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    file_path: {
+        type: String
+    },
+    file_mimetype: {
+        type: String
     }
 });
 

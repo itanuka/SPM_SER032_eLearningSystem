@@ -13,10 +13,11 @@ import { UserContext } from '../../UserContext';
 
 
 
-export const Header = () => {
+function Header() {
 
     const { user } = useContext(UserContext);
-    const navigate = useNavigate();
+    const [filePath, setFilePath] = useState();
+
 
     function logout() {
         localStorage.clear();
@@ -28,8 +29,36 @@ export const Header = () => {
         }).then((value) => {
             Swal.fire((window.location = "/"));
         });
+    }
+
+    async function getUserDetails() {
+        if (user.role == "Student") {
+            axios.get(`http://localhost:4000/api/v1/students/${user.id}`)
+                .then((res) => {
+
+                    setFilePath(res.data.file_path.substring(38));
+                    console.log(res.data);
+                })
+                .catch(err => console.error(err))
+        }
+
+        else if (user.role == "Teacher") {
+            axios.get(`http://localhost:4000/api/v1/teachers/${user.id}`)
+                .then((res) => {
+
+                    setFilePath(res.data.file_path.substring(38));
+                    console.log(res.data);
+                })
+                .catch(err => console.error(err))
+        }
 
     }
+
+    useEffect(() => {
+        if (user) {
+            getUserDetails()
+        }
+    }, [])
 
 
     return (
@@ -56,6 +85,14 @@ export const Header = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to="">Contact Us</Link>
                             </li>
+
+                            {user && <li class="nav-item">
+                                <Link class="nav-link" to="">{user.email}</Link>
+                            </li>}
+
+
+
+
 
 
                             {/* {user ?
@@ -84,17 +121,17 @@ export const Header = () => {
                         <form class="form-inline my-2 my-lg-0 ">
                             {user ? (
                                 <div className="ml-4 dropdown d-inline ">
-                                    <Link to="#!" className="btn dropdown-toggle text-white " type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {filePath && <Link to="#!" className="btn dropdown-toggle text-white " type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <figure className="avatar avatar-nav">
                                             <img
                                                 // src={user.avatar && user.avatar.url}
-                                                src='https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg'
-                                                alt={user && user.first_name}
+                                                src={require(`../../files/profilePictures/${filePath}`)}
                                                 className="rounded-circle "
                                             />
                                         </figure>
-                                        <span>{user && user.first_name}</span>
-                                    </Link>
+                                        <span></span>
+                                    </Link>}
+
 
                                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownMenuButton">
 
@@ -104,14 +141,21 @@ export const Header = () => {
                                         {user.role !== 'admin' && (
                                             <Link className="dropdown-item" to="/listbill/" >My Payments</Link>
                                         )}
+
+
                                         <Link className="dropdown-item" to="/me">Profile</Link>
+
                                         <Link className="dropdown-item text-danger" to="/" onClick={logout}>
                                             Logout
                                         </Link>
                                     </div>
 
                                 </div>
-                            ) : <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none' }} >Sign In</a></button>}
+                            ) : <div> <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none' }} >Sign In</a></button>
+                                <button type="button" class="btn btn-primary"><a class="text-light" href="/registerStudent" style={{ textDecoration: 'none' }} >Create an Account</a></button>
+                            </div>
+
+                            }
                         </form>
                     </div>
                 </nav>
@@ -123,4 +167,4 @@ export const Header = () => {
 
 
 
-export default Header
+export default Header;

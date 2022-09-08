@@ -4,7 +4,7 @@ const Student = require("../models/Student.js");
 exports.registerStudent = async (req, res) => {
 
     let { firstName, lastName, gender, dob, contactNo, email, address, password } = req.body;
-
+    const { path, mimetype } = req.file;
     password = await bcrypt.hash(password, 10);
 
     const newStudent = new Student({
@@ -15,7 +15,9 @@ exports.registerStudent = async (req, res) => {
         contactNo,
         email,
         address,
-        password
+        password,
+        file_path: path,
+        file_mimetype: mimetype
     });
 
     newStudent.save()
