@@ -18,11 +18,15 @@ import ViewAllBooks from "./components/admin/ViewAllBooks";
 import UpdateBook from "./components/admin/UpdateBook";
 import UserViewAllBooks from "./components/UserViewAllBooks";
 import UserViewBook from "./components/UserViewBook";
+import StudentViewAllCourses from "./components/student/StudentViewAllCourses";
+import StudentViewCourse from "./components/student/StudentViewCourse";
+import ViewEnrolledCourses from "./components/student/ViewEnrolledCourses";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import AdminHome from "./components/admin/AdminHome";
 import StudentHome from "./components/student/StudentHome";
 import TeacherHome from "./components/teacher/TeacherHome";
+
 
 
 
@@ -50,6 +54,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+
         <UserContext.Provider value={{ user, setUser, token }} >
           <Header />
           <Routes>
@@ -75,6 +80,11 @@ const App = () => {
             <Route path="/library/UserViewAllBooks/getBookDetails/:id" element={<UserViewBook />}></Route>
 
             {/* Libarary-management */}
+             {/* Course-management */}
+          <Route path="/course/ViewAllCourses" element = {<StudentViewAllCourses/>}></Route>
+          <Route path="/course/ViewSingleCourse/:id" element = {<StudentViewCourse/>}></Route>
+          <Route path="/course/ViewEnrolledCourses" element = {<ViewEnrolledCourses/>}></Route>
+          
           </Routes>
           <Footer />
         </UserContext.Provider >

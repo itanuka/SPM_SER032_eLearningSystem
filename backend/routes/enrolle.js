@@ -1,12 +1,12 @@
 const express = require('express')
-const router = express.Router();
+const enrollRouter = express.Router();
 
 
-const { 
-    newEnroll
-   
- } = require('../controllers/enrolledController')
+const { newEnroll, allEnrolled, singleEnrolledItem, deleteEnrolledCourse } = require('../controllers/enrolledController')
 
- router.route('/enrolle/new').post(newEnroll);
+enrollRouter.post('/newEnroll', newEnroll);
+enrollRouter.get('/allEnrolled', allEnrolled);
+enrollRouter.get('/singleEnrolledItem/:id', singleEnrolledItem)
+enrollRouter.delete('/deleteEnrolledCourse/:id', deleteEnrolledCourse)
 
- module.exports = router;
+ module.exports = enrollRouter;
