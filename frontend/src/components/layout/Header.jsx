@@ -32,13 +32,26 @@ function Header() {
     }
 
     async function getUserDetails() {
-        axios.get(`http://localhost:4000/api/v1/students/${user.id}`)
-            .then((res) => {
+        if (user.role == "Student") {
+            axios.get(`http://localhost:4000/api/v1/students/${user.id}`)
+                .then((res) => {
 
-                setFilePath(res.data.file_path.substring(38));
-                console.log(res.data);
-            })
-            .catch(err => console.error(err))
+                    setFilePath(res.data.file_path.substring(38));
+                    console.log(res.data);
+                })
+                .catch(err => console.error(err))
+        }
+
+        else if (user.role == "Teacher") {
+            axios.get(`http://localhost:4000/api/v1/teachers/${user.id}`)
+                .then((res) => {
+
+                    setFilePath(res.data.file_path.substring(38));
+                    console.log(res.data);
+                })
+                .catch(err => console.error(err))
+        }
+
     }
 
     useEffect(() => {
