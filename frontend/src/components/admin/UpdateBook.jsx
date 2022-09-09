@@ -175,6 +175,7 @@ function UpdateBook() {
                                                     <input
                                                         type="number"
                                                         className="form-control"
+                                                        min={0}
                                                         value={pages}
                                                         onChange={(e) => { setPages(e.target.value) }}
                                                         required
