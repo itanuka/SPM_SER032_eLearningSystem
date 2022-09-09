@@ -119,13 +119,13 @@ export const UpdateTeacher = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="first name"
+                            placeholder="Enter the first name here"
                             value={firstName}
                             onChange={(e) => { setFirstName(e.target.value) }}
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
 
                       <div className="form-row mt-2">
                         <div className="col">
@@ -133,13 +133,13 @@ export const UpdateTeacher = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="last name"
+                            placeholder="Enter the last name here"
                             value={lastName}
                             onChange={(e) => { setLastName(e.target.value) }}
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
 
                       <div className="form-row">
                         <div className="col mt-2" onChange={onChangeGender}>
@@ -157,7 +157,7 @@ export const UpdateTeacher = () => {
                             </label>
                           </div>
                         </div>
-                      </div>
+                      </div><br />
 
                       <div className="form-row mt-2">
                         <div className="col">
@@ -170,7 +170,7 @@ export const UpdateTeacher = () => {
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
 
 
                       <div className="form-row mt-2">
@@ -180,12 +180,27 @@ export const UpdateTeacher = () => {
                             className="form-control"
                             pattern="\+94 7[0-9] [0-9][0-9][0-9] [0-9][0-9][0-9][0-9]"
                             title="contact number should follow required pattern"
+                            placeholder="Enter the contact number here"
                             value={contactNo}
                             onChange={setContactNo}
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
+
+                      <div className="form-row mt-2">
+                        <div className="col">
+                          <label htmlFor="email">Email</label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter the email here"
+                            value={email}
+                            onChange={(e) => { setEmail(e.target.value) }}
+                            required
+                          />
+                        </div>
+                      </div><br />
 
                       <div className="form-row mt-2">
                         <div className="col">
@@ -193,13 +208,13 @@ export const UpdateTeacher = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="address"
+                            placeholder="Enter the address here"
                             value={address}
                             onChange={(e) => { setAddress(e.target.value) }}
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
 
                       <div className="form-row mt-2">
                         <div className="col">
@@ -207,13 +222,13 @@ export const UpdateTeacher = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="qualifications"
+                            placeholder="Enter the qualifications here"
                             value={qualifications}
                             onChange={(e) => { setQualifications(e.target.value) }}
                             required
                           />
                         </div>
-                      </div>
+                      </div><br />
 
 
                       <button type="submit" class="btn btn-primary mt-4" style={{ width: '100%', height: '40px' }}>

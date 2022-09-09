@@ -62,7 +62,7 @@ export const RegisterTeacher = () => {
         else {
             Swal.fire({
                 title: "Passowrds Not Matched!!",
-                text: "Please enter your details correctly...",
+                text: "Please enter the details correctly...",
                 icon: "error",
                 confirmButtonText: "OK",
             });
@@ -90,12 +90,13 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                placeholder="Enter the first name here"
                                                 value={firstName}
                                                 onChange={(e) => { setFirstName(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -103,12 +104,13 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                placeholder="Enter the last name here"
                                                 value={lastName}
                                                 onChange={(e) => { setLastName(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
 
                                     <div className="form-row">
@@ -127,7 +129,7 @@ export const RegisterTeacher = () => {
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -140,7 +142,7 @@ export const RegisterTeacher = () => {
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -149,12 +151,13 @@ export const RegisterTeacher = () => {
                                                 className="form-control"
                                                 pattern="\+94 7[0-9] [0-9][0-9][0-9] [0-9][0-9][0-9][0-9]"
                                                 title="contact number should follow required pattern"
+                                                placeholder="Enter the contact number here"
                                                 value={contactNo}
                                                 onChange={setContactNo}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -162,12 +165,13 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="email"
                                                 className="form-control"
+                                                placeholder="Enter the email here"
                                                 value={email}
                                                 onChange={(e) => { setEmail(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -175,12 +179,13 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                placeholder="Enter the address here"
                                                 value={address}
                                                 onChange={(e) => { setAddress(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -188,12 +193,13 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
+                                                placeholder="Enter the qualifications here"
                                                 value={qualifications}
                                                 onChange={(e) => { setQualifications(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -203,12 +209,13 @@ export const RegisterTeacher = () => {
                                                 className="form-control"
                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                placeholder="Enter the password here"
                                                 value={password}
                                                 onChange={(e) => { setPassword(e.target.value) }}
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <div className="form-row mt-2">
                                         <div className="col">
@@ -216,6 +223,7 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="password"
                                                 className="form-control"
+                                                placeholder="Re-enter the password here"
                                                 value={confirmPassword}
                                                 onChange={(e) => { setConfirmPassword(e.target.value) }}
                                                 required
@@ -233,7 +241,7 @@ export const RegisterTeacher = () => {
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div><br />
 
                                     <button type="submit" class="btn btn-primary mt-4" style={{ width: '100%', height: '40px' }}>
                                         Create Account
