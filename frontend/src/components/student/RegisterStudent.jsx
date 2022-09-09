@@ -39,14 +39,17 @@ export const RegisterStudent = () => {
       try {
         const res = await axios.post('http://localhost:4000/api/v1/students/', data);
 
-        Swal.fire({
+
+        await Swal.fire({
           title: 'Registered Successfully',
           icon: "success",
           showConfirmButton: false,
           timer: 1500
         });
 
-        navigate('/')
+        // navigate('/')
+
+        window.location = "/";
 
       } catch (error) {
         alert(error);

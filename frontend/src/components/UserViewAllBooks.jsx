@@ -42,15 +42,20 @@ function UserViewAllBooks() {
                         <div class="row row-cols-1 row-cols-md-3">
                             {
                                 books.map((book) => {
+
+                                    let link = `/uploads/${book.file_path.substring(27)}`
                                     return (
                                         <div >
                                             {
                                                 <div class="col mb-4">
                                                     <div class="card h-100" >
-                                                        <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
+
+                                                        <img src={link}
                                                             className="card-img-top" alt="..."
                                                         // style={{width:"300px", height:"220px"}}
                                                         />
+
+
                                                         <div class="card-body">
                                                             <h5 class="card-title">{book.title}</h5>
                                                             <h5 class="card-title">ISBN: {book.isbn}</h5>

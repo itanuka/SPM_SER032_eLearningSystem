@@ -32,11 +32,11 @@ function Header() {
     }
 
     async function getUserDetails() {
-        if (user.role == "Student") {
+        if (user.role == "Student" || user.role == "Admin") {
             axios.get(`http://localhost:4000/api/v1/students/${user.id}`)
                 .then((res) => {
 
-                    setFilePath(res.data.file_path.substring(38));
+                    setFilePath(res.data.file_path.substring(27));
                     console.log(res.data);
                 })
                 .catch(err => console.error(err))
@@ -46,7 +46,7 @@ function Header() {
             axios.get(`http://localhost:4000/api/v1/teachers/${user.id}`)
                 .then((res) => {
 
-                    setFilePath(res.data.file_path.substring(38));
+                    setFilePath(res.data.file_path.substring(27));
                     console.log(res.data);
                 })
                 .catch(err => console.error(err))
@@ -86,10 +86,10 @@ function Header() {
                                 <Link class="nav-link" to="">Contact Us</Link>
                             </li>
                             <li class="nav-item">
-                               
-                            {user && 
-                                <Link class="nav-link" to="" style={{ textDecoration: 'none'}}>{user.email}</Link>
-                            }
+
+                                {user &&
+                                    <Link class="nav-link" to="" style={{ textDecoration: 'none' }}>{user.email}</Link>
+                                }
 
                             </li>
 
@@ -122,14 +122,14 @@ function Header() {
                         </ul>
 
                         <form class="form-inline my-2 my-lg-0 ">
-                      
+
                             {user ? (
                                 <div className="ml-4 dropdown d-inline ">
                                     {filePath && <Link to="#!" className="btn dropdown-toggle text-white " type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <figure className="avatar avatar-nav">
                                             <img
                                                 // src={user.avatar && user.avatar.url}
-                                                src={require(`../../files/profilePictures/${filePath}`)}
+                                                src={`/uploads/${filePath}`}
                                                 className="rounded-circle "
                                             />
                                         </figure>
@@ -155,7 +155,7 @@ function Header() {
                                     </div>
 
                                 </div>
-                            ) : <div style={{ marginRight: "-30em", marginLeft: "30em" }} > <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none'}} >Sign In</a></button>
+                            ) : <div style={{ marginRight: "-30em", marginLeft: "30em" }} > <button type="button" class="btn btn-primary"><a class="text-light" href="/login" style={{ textDecoration: 'none' }} >Sign In</a></button>
                                 {/* <button type="button" class="btn btn-primary"><a class="text-light" href="/registerStudent" style={{ textDecoration: 'none' }} >Create an Account</a></button> */}
                             </div>
 
