@@ -52,49 +52,31 @@ function StudentViewCourse() {
     return (
         <div>
             <div className="container" style={{ height: "30px" }}></div>
-
-            <div className="container">
-                <h1 className="text-center">{course.course_name}</h1>
+            <div className="row">
+                {/* div.col-md- */}
             </div>
 
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <div class="card" >
-                            <div class="col mb-4">
-                                <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
+                                <div className="col-md-6">
+                                    <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
                                     className="card-img-top mt-3"
-                                    style={{ width: "500px", height: "450px" }} alt="..."
+                                    style={{ width: "400px", height: "400px" }} alt="..."
                                 />
-                                <div class="card-body">
-                                    {/* <h5 class="card-title">{book.title}</h5> */}
-                                    <h6 class="card-text">Author: {course.author_name}</h6>
-                                    <h6 class="card-text">Description: {course.description}</h6>
-                                    <h6 class="card-text">Category: {course.category}</h6>
-                                    <button
-                                        // onClick={
-                                        //         () => {
-                                        //                  EnrolleCourse();
-                                        //                 }
-                                        //         }
-                                        onClick={()=>{
-                                            addToList()
-                                        }}
-                                        className="btn btn-primary mt-3">
-                                        Enrolled Course
-                                    </button>
                                 </div>
+                                
+                                <div className="col-md-6 mt-5 ml-auto mb-auto"  >
 
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
+                                    <h4 className="tex-uppercase text-black-50">Category :  {course.category} </h4>
+                                    <h1 className="display-5">Course Name : {course.course_name}</h1>
+                                    <h3 className="display-6 fw-bold my-4">Author Name : {course.author_name}</h3>
+                                    <p className="lead"> Description: <br /> {course.description}</p>
+                                    <button onClick={()=>{
+                                            addToList()
+                                            }}
+                                            className="btn btn-primary mt-3">
+                                        Enroll Course
+                                    </button>
 
-
-
-            </div>
+                                </div>
 
 
         </div>

@@ -38,7 +38,7 @@ function ViewEnrolledCourses() {
         {
             enrolledList.map(item=>{
                 return(
-                    <SingleEnrolledCourse id = {item.enrolledItems[0].course}/>
+                    <SingleEnrolledCourse id = {item.enrolledItems[0].course} id2= {item._id}/>
                 )
             })
         }
