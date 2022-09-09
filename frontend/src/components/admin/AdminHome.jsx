@@ -36,7 +36,7 @@ function AdminHome() {
 
                             <div class="col mb-4">
                                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                    <div class="card-header text-center">Manage Student</div>
+                                    <div class="card-header text-center">Manage Students</div>
                                     <div class="card-body">
                                         <a href="" className="custom-size"> <i class="fa-solid fa-user-graduate"></i></a>
                                     </div>
@@ -45,7 +45,7 @@ function AdminHome() {
 
                             <div class="col mb-4">
                                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                    <div class="card-header text-center">Manage Staff Member</div>
+                                    <div class="card-header text-center">Manage Teachers</div>
                                     <div class="card-body">
                                         <a href="" className="custom-size"><i class=" fas fa-users"></i></a>
                                     </div>
@@ -54,18 +54,18 @@ function AdminHome() {
 
                             <div class="col mb-4">
                                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                    <div class="card-header text-center">Add New Admin</div>
+                                    <div class="card-header text-center">Add Books</div>
                                     <div class="card-body">
-                                        <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
+                                        <a href="/library/addBook" className="custom-size"><i class="fa-solid fa-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col mb-4">
                                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                    <div class="card-header text-center">Manage Student Groups</div>
+                                    <div class="card-header text-center">Library</div>
                                     <div class="card-body">
-                                        <a href="" className="custom-size"><i class="fa-solid fa-users-rectangle"></i></a>
+                                        <a href="/library/viewAllBooks" className="custom-size"><i class="fa-solid fa-book"></i></a>
                                     </div>
                                 </div>
                             </div>
