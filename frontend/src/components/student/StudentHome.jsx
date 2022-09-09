@@ -51,9 +51,9 @@ function StudentHome() {
                                 <>
                                     <div class="col mb-4">
                                         <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                            <div class="card-header text-center">Create Student Group</div>
+                                            <div class="card-header text-center">My Courses</div>
                                             <div class="card-body">
-                                                <a href="/student/createGroup" className="custom-size"><i class="fa-solid fa-user-group"></i></a>
+                                                <a href="" className="custom-size"><i class="fa-sharp fa-solid fa-book-open-reader"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -76,6 +76,15 @@ function StudentHome() {
                                     <div class="card-header text-center">Change Password</div>
                                     <div class="card-body">
                                         <a href="/student/changePassword" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col mb-4">
+                                <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
+                                    <div class="card-header text-center">Library</div>
+                                    <div class="card-body">
+                                        <a href="/library/UserviewAllBooks" className="custom-size"><i class="fa-solid fa-book"></i></a>
                                     </div>
                                 </div>
                             </div>

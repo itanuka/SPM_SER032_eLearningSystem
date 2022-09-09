@@ -76,10 +76,20 @@ function UserViewBook() {
                                             <h6 class="card-text">No of Pages: {book.pages}</h6>
                                             <h6 class="card-text">Category: {book.category}</h6>
                                             <h6 class="card-text">Description: {book.description}</h6>
-                                            <button
+                                            {/* <button
 
                                                 href="#" class="btn btn-primary mt-3">Download
-                                            </button>
+                                            </button> */}
+
+                                            <button className="btn btn-primary mt-3"
+                                                onClick={() => {
+                                                    Swal.fire({
+                                                        title: 'Download Successfully',
+                                                        icon: "success",
+                                                        showConfirmButton: false,
+                                                        timer: 1500
+                                                    })
+                                                }}>Download</button>
                                         </div>
 
                                     </div>

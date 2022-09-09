@@ -50,7 +50,7 @@ function AddBook() {
             showConfirmButton: false,
             timer: 1500
         })
-        navigate("/");
+       window.location = "/library/viewAllBooks";
     };
 
     return (
