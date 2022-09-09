@@ -45,7 +45,7 @@ export const Login = () => {
           showConfirmButton: false,
           timer: 1500
         }).then((value) => {
-          Swal.fire((window.location = "/library/viewAllBooks"));
+          Swal.fire((window.location = "/teacherHome"));
         });
         // navigate("/supervisor");
 
@@ -56,7 +56,7 @@ export const Login = () => {
           showConfirmButton: false,
           timer: 1500
         }).then((value) => {
-          Swal.fire((window.location = "/students"));
+          Swal.fire((window.location = "/adminHome"));
         });
 
 
@@ -94,7 +94,7 @@ export const Login = () => {
           <div className="col-md-3"></div>
 
           <div className="col-md-6" >
-            <div className="card" style={{ backgroundColor: '#b3e6ff', marginTop: "60px", height: "400px", width: "400px" }}>
+            <div className="card" style={{ backgroundColor: '#b3e6ff', marginTop: "60px", height: "400px", width: "500px" }}>
               <div className="card-body" >
                 <h2 class="mb-4 text-center">Sign In</h2>
 
