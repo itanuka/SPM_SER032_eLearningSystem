@@ -8,7 +8,7 @@ const multer = require("multer")
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "../frontend/src/files/books")
+    callback(null, "../frontend/public/uploads")
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname)
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
-      cb(null, '../frontend/src/files/books');
+      cb(null, '../frontend/public/uploads');
     },
     filename(req, file, cb) {
       cb(null, `${new Date().getTime()}_${file.originalname}`);

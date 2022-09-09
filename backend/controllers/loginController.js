@@ -13,7 +13,27 @@ exports.login = async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, student.password);
 
         if (isPasswordValid) {
+
             let token;
+
+            if (student.email === "admin@elearning.lk") {
+                token = jwt.sign(
+                    {
+                        id: student._id,
+                        email: student.email,
+                        role: "Admin",
+                    },
+                    process.env.JWT_SECRET
+                );
+
+                return res.json({
+                    status: "ok",
+                    token: token,
+                    role: "Admin"
+                });
+
+            }
+
             token = jwt.sign(
                 {
                     id: student._id,

@@ -41,14 +41,14 @@ export const RegisterTeacher = () => {
             try {
                 const res = await axios.post('http://localhost:4000/api/v1/teachers/', data);
 
-                Swal.fire({
+                await Swal.fire({
                     title: 'Registered Successfully',
                     icon: "success",
                     showConfirmButton: false,
                     timer: 1500
                 });
 
-                navigate('/')
+                window.location = "/teachers";
 
             } catch (error) {
                 alert(error);

@@ -89,7 +89,7 @@ export const Login = () => {
   return (
     <div>
       <div className="container" style={{ height: "100px" }}></div>
-      <div className="container"style={{ marginBottom: "341px" }}>
+      <div className="container" style={{ marginBottom: "341px" }}>
         <div className="row">
           <div className="col-md-3"></div>
 
@@ -147,7 +147,7 @@ export const Login = () => {
 
                   <div className="col text-center">
                     <span>No Account ? </span>
-                    <span><Link to="registerStudent" style={{ textDecoration: 'none' }}>Create Account</Link> </span>
+                    <span><Link to="/registerStudent" style={{ textDecoration: 'none' }}>Create Account</Link> </span>
                   </div>
                 </div>
 
