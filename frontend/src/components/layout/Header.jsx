@@ -139,12 +139,12 @@ function Header() {
 
                                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownMenuButton">
 
-                                        {user && user.role === 'admin' && (
+                                        {/* {user && user.role === 'admin' && (
                                             <Link className="dropdown-item" to="/admin/Dashboard">Dashboard</Link>
                                         )}
                                         {user.role !== 'admin' && (
                                             <Link className="dropdown-item" to="/listbill/" >My Payments</Link>
-                                        )}
+                                        )} */}
 
 
                                         <Link className="dropdown-item" to="/me">Profile</Link>
