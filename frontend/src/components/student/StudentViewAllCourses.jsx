@@ -26,7 +26,7 @@ function StudentViewAllCourses() {
 
     return (
         <div>
-            <div className="container" style={{ height: "60px" }}></div>
+            <div className="container" style={{ height: "20px" }}></div>
             <div className="container">
                 <h1 className="text-center">Courses</h1>
             </div>
@@ -53,7 +53,7 @@ function StudentViewAllCourses() {
                                                             }
                                                         }
                                                         className="btn btn-primary mt-3">
-                                                        View More
+                                                        View More...
                                                     </button>
                                                 </div>
                                             </div>

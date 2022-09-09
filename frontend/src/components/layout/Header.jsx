@@ -45,7 +45,7 @@ export const Header = () => {
                     <div class="collapse navbar-collapse justify-content-center mr-5" id="navbarSupportedContent">
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <Link class="nav-link" to="">Courses</Link>
+                                <Link class="nav-link" to="/course/ViewAllCourses">Courses</Link>
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" to="">Library</Link>

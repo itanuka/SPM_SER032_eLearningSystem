@@ -80,6 +80,8 @@ const App = () => {
             <Route path="/library/UserViewAllBooks/getBookDetails/:id" element={<UserViewBook />}></Route>
 
             {/* Libarary-management */}
+
+            
              {/* Course-management */}
           <Route path="/course/ViewAllCourses" element = {<StudentViewAllCourses/>}></Route>
           <Route path="/course/ViewSingleCourse/:id" element = {<StudentViewCourse/>}></Route>
