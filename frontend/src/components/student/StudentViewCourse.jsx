@@ -52,6 +52,9 @@ function StudentViewCourse() {
     return (
         <div>
             <div className="container" style={{ height: "30px" }}></div>
+            <div className="row">
+                {/* div.col-md- */}
+            </div>
 
                                 <div className="col-md-6">
                                     <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
@@ -62,18 +65,18 @@ function StudentViewCourse() {
                                 
                                 <div className="col-md-6 mt-5 ml-auto mb-auto"  >
 
-                                    <h4 className="tex-uppercase text-black-50">{course.category} </h4>
-                                    <h1 className="display-5">{course.course_name}</h1>
-                                    <h3 className="display-6 fw-bold my-4">{course.author_name}</h3>
-                                    <p className="lead">{course.description}</p>
+                                    <h4 className="tex-uppercase text-black-50">Category :  {course.category} </h4>
+                                    <h1 className="display-5">Course Name : {course.course_name}</h1>
+                                    <h3 className="display-6 fw-bold my-4">Author Name : {course.author_name}</h3>
+                                    <p className="lead"> Description: <br /> {course.description}</p>
                                     <button onClick={()=>{
                                             addToList()
                                             }}
                                             className="btn btn-primary mt-3">
-                                        Enrolled Course
+                                        Enroll Course
                                     </button>
 
-                </div>
+                                </div>
 
 
         </div>

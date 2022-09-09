@@ -13,17 +13,16 @@ function SingleEnrolledCourse(props) {
       .catch((err) => console.error(err));
   }
 
-//   async function deleteCourse(){
-//     await axios
-//                 .delete(`http://localhost:4000/api/v1/enrolle/deleteEnrolledCourse/${props.id}`)
-//                 .then((response) => {
-//                     console.log(response.data);
-//                 });
-//   }             
+  async function deleteCourse(){
+    await axios
+                .delete(`http://localhost:4000/api/v1/enrolle/deleteEnrolledCourse/${props.id2}`)
+                .then((response) => {
+                    console.log(response.data);
+                }).catch(err=>console.error(err))
+  }             
 
   useEffect(() => {
     getEnrolledCourseDetails();
-    // deleteCourse()
   }, []);
 
   return (
@@ -57,14 +56,13 @@ function SingleEnrolledCourse(props) {
 
                             <div className="col-md-4 mt-4">
                             <button className="btn btn-primary mb-2">Feedback</button>
-                            <button 
+                            <button onClick={()=>{deleteCourse()}}
                                         className="btn btn-danger"
 
 
                             >Un Enroll</button>
                             </div>
                         </div>
-
                         {/* <button
                                     // onClick={
                                     //         () => {

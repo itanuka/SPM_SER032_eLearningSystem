@@ -28,7 +28,7 @@ function StudentViewAllCourses() {
         <div>
             <div className="container" style={{ height: "20px" }}></div>
             <div className="container">
-                <h1 className="text-center">Courses</h1>
+                <h1 className="text-center">Welcome...!</h1>
             </div>
             <div className="container mt-5">
                 <div class="row row-cols-1 row-cols-md-3">
@@ -45,7 +45,7 @@ function StudentViewAllCourses() {
                                                 <div class="card-body">
                                                     <h5 class="card-title">{course.course_name}</h5>
                                                     <h6 class="card-text">Author: {course.author_name}</h6>
-                                                    <h6 class="card-text">Description: {course.description}</h6>
+                                                    {/* <h6 class="card-text">Description: {course.description}</h6> */}
                                                     <button
                                                         onClick={
                                                             () => {

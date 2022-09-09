@@ -83,7 +83,7 @@ const App = () => {
 
             
              {/* Course-management */}
-          <Route path="/course/ViewAllCourses" element = {<StudentViewAllCourses/>}></Route>
+          <Route path="/" element = {<StudentViewAllCourses/>}></Route>
           <Route path="/course/ViewSingleCourse/:id" element = {<StudentViewCourse/>}></Route>
           <Route path="/course/ViewEnrolledCourses" element = {<ViewEnrolledCourses/>}></Route>
           
