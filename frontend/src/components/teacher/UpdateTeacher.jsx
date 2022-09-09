@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserSideBar from "../layout/UserSideBar";
+import PhoneInput from "react-phone-number-input"
+import "react-phone-number-input/style.css"
 
 export const UpdateTeacher = () => {
 
@@ -48,13 +50,13 @@ export const UpdateTeacher = () => {
       }).catch((error) => {
         alert(error);
       });
-    Swal.fire({
+    await Swal.fire({
       title: 'Update Successfully',
       icon: "success",
       showConfirmButton: false,
       timer: 1500
     })
-    navigate("/")
+    navigate("/teachers")
 
     setFirstName("");
     setLastName("");
@@ -64,9 +66,12 @@ export const UpdateTeacher = () => {
     setEmail("");
     setAddress("");
     setQualifications("");
-    // setPassword("");
-    // setConfirmPassword("");
   };
+
+  function onChangeGender(event) {
+    setGender(event.target.value);
+    console.log(event.target.value);
+  }
 
 
   useEffect(() => {
@@ -82,8 +87,6 @@ export const UpdateTeacher = () => {
         setEmail(res.data.email);
         setAddress(res.data.address);
         setQualifications(res.data.qualifications);
-        // setPassword(res.data.password);
-        // setConfirmPassword(res.data.password);
       })
 
       .catch((err) => {
@@ -139,17 +142,17 @@ export const UpdateTeacher = () => {
                       </div>
 
                       <div className="form-row">
-                        <div className="col mt-2">
-                          <label htmlFor="firstName">Gender</label><br />
+                        <div className="col mt-2" onChange={onChangeGender}>
+                          <label htmlFor="gender">Gender</label><br />
                           <div class="form-check-inline">
                             <label class="form-check-label" for="radio1">
-                              <input type="radio" class="form-check-input" id="radio1" name="gender" value="Male" checked onChange={(e) => { setGender(e.target.value) }} />
+                              <input type="radio" class="form-check-input" id="radio1" name="gender" value="Male" checked={gender === "Male"} />
                               Male
                             </label>
                           </div>
                           <div class="form-check-inline">
                             <label class="form-check-label" for="radio2">
-                              <input type="radio" class="form-check-input" id="radio2" name="gender" value="Female" onChange={(e) => { setGender(e.target.value) }} />
+                              <input type="radio" class="form-check-input" id="radio2" name="gender" value="Female" checked={gender === "Female"} />
                               Female
                             </label>
                           </div>
@@ -169,32 +172,16 @@ export const UpdateTeacher = () => {
                         </div>
                       </div>
 
-                      <div className="form-row mt-2">
-                        <div className="col">
-                          <label htmlFor="contactNumber">Contact Number</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="07x-xxxxxxx"
-                            pattern="[0-9]{3}-[0-9]{7}"
-                            title="contact number should follow required pattern"
-                            value={contactNo}
-                            onChange={(e) => { setContactNo(e.target.value) }}
-                            required
-                          />
-                        </div>
-                      </div>
 
                       <div className="form-row mt-2">
                         <div className="col">
-                          <label htmlFor="email">Email</label>
-                          <input
-                            type="email"
+                          <label htmlFor="contactNumber">Contact Number ( Format: +94 7x zzzzzzz )</label>
+                          <PhoneInput
                             className="form-control"
-                            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            // title="Enter Valid E-mail address"
-                            value={email}
-                            onChange={(e) => { setEmail(e.target.value) }}
+                            pattern="\+94 7[0-9] [0-9][0-9][0-9] [0-9][0-9][0-9][0-9]"
+                            title="contact number should follow required pattern"
+                            value={contactNo}
+                            onChange={setContactNo}
                             required
                           />
                         </div>
@@ -228,32 +215,6 @@ export const UpdateTeacher = () => {
                         </div>
                       </div>
 
-                      {/* 
-                    <div className="form-row mt-2">
-                      <div className="col">
-                        <label htmlFor="password">Password</label>
-                        <input
-                          type="password"
-                          className="form-control"
-                          value={password}
-                          onChange={(e) => { setPassword(e.target.value) }}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="form-row mt-2">
-                      <div className="col">
-                        <label htmlFor="password">Confirm Password</label>
-                        <input
-                          type="password"
-                          className="form-control"
-                          value={confirmPassword}
-                          onChange={(e) => { setConfirmPassword(e.target.value) }}
-                          required
-                        />
-                      </div>
-                    </div> */}
 
                       <button type="submit" class="btn btn-primary mt-4" style={{ width: '100%', height: '40px' }}>
                         Update Details

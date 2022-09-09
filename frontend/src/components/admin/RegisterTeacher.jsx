@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import PhoneInput from "react-phone-number-input"
+import "react-phone-number-input/style.css"
 
 export const RegisterTeacher = () => {
 
@@ -114,7 +116,7 @@ export const RegisterTeacher = () => {
                                             <label htmlFor="firstName">Gender</label><br />
                                             <div class="form-check-inline">
                                                 <label class="form-check-label" for="radio1">
-                                                    <input type="radio" class="form-check-input" id="radio1" name="gender" value="Male" checked onChange={(e) => { setGender(e.target.value) }} />
+                                                    <input type="radio" class="form-check-input" id="radio1" name="gender" value="Male" onChange={(e) => { setGender(e.target.value) }} />
                                                     Male
                                                 </label>
                                             </div>
@@ -142,12 +144,13 @@ export const RegisterTeacher = () => {
 
                                     <div className="form-row mt-2">
                                         <div className="col">
-                                            <label htmlFor="contactNumber">Contact Number</label>
-                                            <input
-                                                type="text"
+                                            <label htmlFor="contactNumber">Contact Number (Format: +94 7x zzzzzzz)</label>
+                                            <PhoneInput
                                                 className="form-control"
+                                                pattern="\+94 7[0-9] [0-9][0-9][0-9] [0-9][0-9][0-9][0-9]"
+                                                title="contact number should follow required pattern"
                                                 value={contactNo}
-                                                onChange={(e) => { setContactNo(e.target.value) }}
+                                                onChange={setContactNo}
                                                 required
                                             />
                                         </div>
@@ -198,6 +201,8 @@ export const RegisterTeacher = () => {
                                             <input
                                                 type="password"
                                                 className="form-control"
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                                 value={password}
                                                 onChange={(e) => { setPassword(e.target.value) }}
                                                 required
