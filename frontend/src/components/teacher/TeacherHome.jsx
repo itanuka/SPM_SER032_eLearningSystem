@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import jwtDecode from 'jwt-decode'
 
 import { Link, useNavigate } from "react-router-dom";
-import UserSideBar from '../layout/UserSideBar';
+import TeacherSideBar from '../layout/TeacherSideBar';
 import '../style/teacherHome.css'
 
 function TeacherHome() {
@@ -29,7 +29,7 @@ function TeacherHome() {
             <div className="row" style={{ maxWidth: "100%" }}>
 
                 <div className="col-2">
-                    <UserSideBar />
+                    <TeacherSideBar />
                 </div>
 
                 <div className="col-10">
