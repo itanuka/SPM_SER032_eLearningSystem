@@ -93,9 +93,9 @@ export const Login = () => {
         <div className="row">
           <div className="col-md-3"></div>
 
-          <div className="col-md-6">
-            <div className="card" style={{ marginTop: "60px" }}>
-              <div className="card-body">
+          <div className="col-md-6" >
+            <div className="card" style={{ backgroundColor: '#b3e6ff', marginTop: "60px", height: "400px", width: "400px" }}>
+              <div className="card-body" >
                 <h2 class="mb-4 text-center">Sign In</h2>
 
                 <form onSubmit={loginUser}>
@@ -147,7 +147,7 @@ export const Login = () => {
 
                   <div className="col text-center">
                     <span>No Account ? </span>
-                    <span><Link to="/registerStudent" style={{ textDecoration: 'none' }}>Create Account</Link> </span>
+                    <span><Link to="/registerStudent" style={{ color: '', textDecoration: 'none' }}>Create Account</Link> </span>
                   </div>
                 </div>
 
