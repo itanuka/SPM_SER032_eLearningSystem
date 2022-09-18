@@ -7,6 +7,7 @@ function StudentViewAllCourses() {
     let navigate = useNavigate();
 
     const [courses, setCourses] = useState([]);
+    const [searchKeyword, setSearchKeyword] = useState("")
 
     const loadCourses = async () => {
         await axios.get("http://localhost:4000/api/v1/courses/getAllCourses")
@@ -20,20 +21,33 @@ function StudentViewAllCourses() {
             })
     }
 
+    const filteredCourseList = courses.filter((course) => {
+            return course.course_name.toLowerCase().includes(searchKeyword.toLowerCase())
+        })
+
+
+
     useEffect(() => {
         loadCourses()
     }, []);
 
     return (
         <div>
-            <div className="container" style={{ height: "20px" }}></div>
+        <div className = "row" style={{ maxWidth: "100%" }}>
+           
             <div className="container">
                 <h1 className="text-center">Welcome...!</h1>
             </div>
+            <input type="text"
+                onChange={(e)=>{
+                    setSearchKeyword(e.target.value)
+                }}
+                placeholder="Search by course name"
+            />
             <div className="container mt-5">
                 <div class="row row-cols-1 row-cols-md-3">
                     {
-                        courses.map((course) => {
+                        filteredCourseList.map((course) => {
                             return (
                                 <div >
                                     {
@@ -65,6 +79,7 @@ function StudentViewAllCourses() {
                     }
                 </div>
             </div>
+        </div>
         </div>
     )
 }
