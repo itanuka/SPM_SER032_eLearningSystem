@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 
 
+
 function StudentViewCourse() {
     let navigate = useNavigate();
 
@@ -52,31 +53,42 @@ function StudentViewCourse() {
     return (
         <div>
             <div className="container" style={{ height: "30px" }}></div>
-            <div className="row">
-                {/* div.col-md- */}
-            </div>
+            <div className="container" style={{ height: "595px" }}>
 
-                                <div className="col-md-6">
+            <div className="row">
+                <div className="col-md-7">
+                <div >
                                     <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
                                     className="card-img-top mt-3"
                                     style={{ width: "400px", height: "400px" }} alt="..."
                                 />
                                 </div>
+                </div>
+                <div className="col-md-5">
+
+                <div className=""  >
+
+                        <h4 className="tex-uppercase text-black-50">Category :  {course.category} </h4>
+                        <h1 className="display-5">Course Name : {course.course_name}</h1>
+                        <h3 className="display-6 fw-bold my-4">Author Name : {course.author_name}</h3>
+                        <p className="lead"> Description: <br /> {course.description}</p>
+                        <button onClick={()=>{
+                                addToList()
+                                }}
+                                className="btn btn-primary mt-3">
+                            Enroll Course
+                        </button>
+
+                        </div>
+                </div>
+            </div>
+                
+            </div>
+            
+
                                 
-                                <div className="col-md-6 mt-5 ml-auto mb-auto"  >
-
-                                    <h4 className="tex-uppercase text-black-50">Category :  {course.category} </h4>
-                                    <h1 className="display-5">Course Name : {course.course_name}</h1>
-                                    <h3 className="display-6 fw-bold my-4">Author Name : {course.author_name}</h3>
-                                    <p className="lead"> Description: <br /> {course.description}</p>
-                                    <button onClick={()=>{
-                                            addToList()
-                                            }}
-                                            className="btn btn-primary mt-3">
-                                        Enroll Course
-                                    </button>
-
-                                </div>
+                                
+                                
 
 
         </div>
