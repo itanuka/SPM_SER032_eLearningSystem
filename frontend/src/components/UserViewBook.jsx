@@ -62,7 +62,7 @@ function UserViewBook() {
                             <div className="col-md-5">
                                 <div class="card h-100" >
                                     <div class="col mb-4">
-                                        <img src="https://wisdomtreeindia.com/images/product/Mini-Habits-Cover.jpg"
+                                        <img src="https://productimages.worldofbooks.com/0078821010.jpg"
                                             className="card-img-top mt-3"
                                             // style={{width:"280px", height:"220px"}} 
                                             alt="..."

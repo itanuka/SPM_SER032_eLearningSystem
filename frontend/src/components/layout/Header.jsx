@@ -77,7 +77,7 @@ function Header() {
                                 <Link class="nav-link" to="/course/ViewAllCourses">Courses</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" to="">Library</Link>
+                                <Link class="nav-link" to="/library/UserviewAllBooks">Library</Link>
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" to="">About Us</Link>
@@ -129,7 +129,8 @@ function Header() {
                                         <figure className="avatar avatar-nav">
                                             <img
                                                 // src={user.avatar && user.avatar.url}
-                                                src={`/uploads/${filePath}`}
+                                                // src={`/uploads/${filePath}`}
+                                                src='https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg'
                                                 className="rounded-circle "
                                             />
                                         </figure>
