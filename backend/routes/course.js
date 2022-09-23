@@ -1,7 +1,7 @@
 const express = require('express')
 const courseRouter = express.Router();
 
-const { createCourse, getAllCourses, getSingleCourse  } = require('../controllers/courseController')
+const { createCourse, getAllCourses, getSingleCourse, updateCourse, deleteCourse  } = require('../controllers/courseController')
 
 const Course = require("../models/Course")
 const multer = require("multer")
@@ -73,5 +73,7 @@ courseRouter.post("/new_course", upload.single("image"), async (req, res) => {
 
 courseRouter.get('/getAllCourses', getAllCourses);
 courseRouter.get('/getSingleCourse/:id', getSingleCourse);
+courseRouter.put('/update_course/:id', updateCourse);
+courseRouter.delete('/delete_course/:id', deleteCourse);
 
 module.exports = courseRouter;

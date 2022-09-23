@@ -36,7 +36,7 @@ const getSingleCourse = async (req, res ) =>{
 
 
 // @desc Update existing course
-// @route PUT api/v1/course/update_course/:id
+// @route PUT api/v1/courses/update_course/:id
 // @access Private
 const updateCourse = async (req, res) => {
     try {
@@ -50,7 +50,7 @@ const updateCourse = async (req, res) => {
 }
 
 // @desc Delete single course
-// @route DELETE api/v1/course/delete_course/:id
+// @route DELETE api/v1/courses/delete_course/:id
 // @access Private
 const deleteCourse = async (req, res) => {
     try {
@@ -62,4 +62,4 @@ const deleteCourse = async (req, res) => {
     }
 }
 
-module.exports = {createCourse, getAllCourses, getSingleCourse}
+module.exports = { getAllCourses, getSingleCourse, updateCourse, deleteCourse}
