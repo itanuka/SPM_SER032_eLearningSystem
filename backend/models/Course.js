@@ -17,20 +17,15 @@ const CourseSchema = new Schema({
         required:true
 
     },
-    category:{
+    category: {
         type: String,
-        required: [true, 'please select category for this product'],
-        enum: {
-            values: [
-                'Back end',
-                'Front end',
-                'Mobile'
-            ]
-        }
-
+        required: true
     },
-    image:{
-
+    image_path: {
+        type: String,
+    },
+    image_mimetype: {
+        type: String
     }
 
 })
