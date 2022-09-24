@@ -1,7 +1,7 @@
 const express = require('express')
 const courseRouter = express.Router();
 
-const { createCourse, getAllCourses, getSingleCourse, updateCourse, deleteCourse  } = require('../controllers/courseController')
+const { getAllCourses, getSingleCourse, updateCourse, deleteCourse  } = require('../controllers/courseController')
 
 const Course = require("../models/Course")
 const multer = require("multer")
