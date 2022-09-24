@@ -21,7 +21,7 @@ export default function adminSideBar() {
                                     class=" fas fa-users"></i> Users</a>
                                 <ul class="collapse list-unstyled" id="productSubmenu">
                                     <li>
-                                        <a href=""><i class="fa-solid fa-user"></i> Teachers</a>
+                                        <a href="/teachers"><i class="fa-solid fa-user"></i> Teachers</a>
                                     </li>
 
                                     <li>
