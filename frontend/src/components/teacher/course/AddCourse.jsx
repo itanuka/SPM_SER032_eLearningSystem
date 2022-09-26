@@ -81,8 +81,8 @@ function AddCourse() {
 
             {/* Adjust from here */}
             <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">Course Name</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Name" onChange={(e)=>setCourseName(e.target.value)} required/>
+                <label for="validationCustom02" class="form-label">Author Name</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Name" onChange={(e)=>setAuthorName(e.target.value)} required/>
                 <div class="valid-feedback">
                 Looks good!
                 </div>
