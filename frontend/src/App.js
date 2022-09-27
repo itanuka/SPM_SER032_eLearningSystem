@@ -26,9 +26,12 @@ import Footer from "./components/layout/Footer";
 import AdminHome from "./components/admin/AdminHome";
 import StudentHome from "./components/student/StudentHome";
 import TeacherHome from "./components/teacher/TeacherHome";
-
-
-
+import AddCourse from "./components/teacher/course/AddCourse";
+import ViewCourses from "./components/teacher/course/ViewCourses";
+import UploadCourseMaterial from "./components/teacher/course material/UploadCourseMaterial";
+import CourseMaterialTeacherView from "./components/teacher/course material/CourseMaterialTeacherView";
+import GenerateCourseMaterialReport from "./components/teacher/course material/GenerateCourseMaterialReport";
+import ViewCourseMaterial from "./components/student/ViewCourseMaterial";
 
 
 const App = () => {
@@ -94,6 +97,13 @@ const App = () => {
 
           {/* Course-management */}
           
+          {/* Course material-management */}
+          <Route path="/teachers/uploadCourseMaterial/:courseID" element={<UploadCourseMaterial/>}/>
+          <Route path="/teachers/viewCourseMaterial/:courseID" element={<CourseMaterialTeacherView/>}/>
+          <Route path="/teachers/generateCourseMaterialReport/:courseID" element={<GenerateCourseMaterialReport/>}/>
+          <Route path="/students/viewCourseMaterial/:courseID" element={<ViewCourseMaterial/>} />
+          {/* Course material-management */}
+
           </Routes>
           <Footer />
         </UserContext.Provider >
