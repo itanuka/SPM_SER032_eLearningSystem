@@ -10,6 +10,7 @@ function CourseMaterialTeacherView() {
     const {courseID} = useParams();
     const [errorMsg, setErrorMsg] = useState('');
     const[deleteCount, setDeleteCount] = useState(0);
+    const [searchKeyword, setSearchKeyword] = useState("");
 
     let filename = ""
     let size = 0
@@ -37,6 +38,11 @@ function CourseMaterialTeacherView() {
         })
     }
 
+    // setting the list of course material that matches with the search keyword
+    const filteredCourseMaterialList = materials.filter((material) => {
+        return material.course_name.toLowerCase().includes(searchKeyword.toLowerCase())
+    })
+
     useEffect(()=>{
         getCourseMaterial()
     }, [deleteCount])
@@ -53,7 +59,7 @@ function CourseMaterialTeacherView() {
                 <th> </th>
             </thead>
             <tbody>
-                {materials.map(material=>{
+                {filteredCourseMaterialList.map(material=>{
                     filename = material.file_path
                     size = filename.length
                     filename = filename.substring(57, size)
