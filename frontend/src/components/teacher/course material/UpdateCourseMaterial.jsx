@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
 function UpdateCourseMaterial() {
@@ -36,6 +36,18 @@ function UpdateCourseMaterial() {
 
       navigate(`/teachers/viewCourses`);
   };
+
+    async function getCourseMaterial() {
+        await axios.get(`http://localhost:4000/api/v1/course_material/get_single_course_material/${courseMaterialID}`)
+        .then(res=>{
+            setMaterials(res.data);
+        })
+        .catch(err=>console.error(err))
+    }
+
+    useEffect(()=>{
+        getCourseMaterial()
+    }, [])
 
 
   return (
