@@ -39,7 +39,7 @@ export default function adminSideBar() {
                             </li>
 
                             <li>
-                                <a href=""><i class="fas fa-clipboard-list"></i> Reports</a>
+                                <a href="/library/UserViewAllBooks/generateBookReport"><i class="fas fa-clipboard-list"></i> Reports</a>
                             </li>
 
 

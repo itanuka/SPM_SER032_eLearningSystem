@@ -8,6 +8,11 @@ function ViewAllBooks() {
     let navigate = useNavigate();
 
     const [books, setBooks] = useState([]);
+    const [searchKeyword, setSearchKeyword] = useState("");
+
+    const filteredBooks = books.filter(book => {
+        return book.isbn.toLowerCase().includes(searchKeyword.toLowerCase())
+    })
 
     const loadBooks = async () => {
         await axios.get("http://localhost:4000/api/v1/books/getAllBooks")
@@ -42,12 +47,21 @@ function ViewAllBooks() {
                         <h1 className="text-center">View All Books</h1>
                     </div>
                     <div className="container mt-5">
-                        <div className="row">
-
+                        <div className="row mt-3">
+                            <div className="col-md-5"></div>
+                            <div className="col-md-4"></div>
+                            <div className="col-md-3">
+                                <input type="text" name="" id="" placeholder="Search" style={{ width: "200px" }}
+                                className = "ml-5"
+                                    onChange={e => setSearchKeyword(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mt-4">
                             <div className="col-md">
                                 <table className="table">
                                     <thead>
-                                        <th>Id</th>
+                                        {/* <th>Id</th> */}
                                         <th>Title</th>
                                         <th>ISBN</th>
                                         <th>Author</th>
@@ -61,10 +75,10 @@ function ViewAllBooks() {
                                     </thead>
                                     <tbody>
                                         {
-                                            books.map((book) => {
+                                            filteredBooks.map((book) => {
                                                 return (
                                                     <tr>
-                                                        <td>{book._id}</td>
+                                                        {/* <td>{book._id}</td> */}
                                                         <td>{book.title}</td>
                                                         <td>{book.isbn}</td>
                                                         <td>{book.author}</td>
@@ -104,6 +118,7 @@ function ViewAllBooks() {
                                         }
                                     </tbody>
                                 </table>
+                                {/* <button className="btn btn-submit" onClick={navigate(`/book_report`)}>Generate Book Report</button> */}
                             </div>
                         </div>
                     </div>
