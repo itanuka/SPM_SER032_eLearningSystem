@@ -5,7 +5,7 @@ const BookSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    isbn:{
+    isbn: {
         type: String,
         require: true
     },
@@ -33,10 +33,16 @@ const BookSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    file_path: {
+    cover_file_path: {
         type: String
     },
-    file_mimetype: {
+    cover_file_mimetype: {
+        type: String
+    },
+    book_file_path: {
+        type: String
+    },
+    book_file_mimetype: {
         type: String
     }
 });

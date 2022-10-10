@@ -2,31 +2,9 @@ const { find } = require('../models/Course');
 const Course = require('../models/Course')
 
 
-// create course
-
-const createCourse = async (req, res) =>{
-
-    const {course_name, author_name, description, category, image} = req.body;
-
-        try {
-            const course = await Course.create({
-                course_name,
-                author_name,
-                description,
-                category,
-                
-            });
-    
-            if(course) res.status(201).json(course);
-    } catch (error) {
-        res.status(400).json({
-            error
-        })
-    }
-}
-
-//get all Courses
-
+// @desc Get all courses
+// @route GET api/v1/courses/getAllCourses
+// @access Public
 const getAllCourses = async (req, res)=>{
 
     try {
@@ -38,8 +16,9 @@ const getAllCourses = async (req, res)=>{
     }
 }
 
-//get Single Courses
-
+// @desc Get single course
+// @route GET api/v1/courses/getSingleCourse/:id
+// @access Public
 const getSingleCourse = async (req, res ) =>{
 
     const id = req.params.id;
@@ -50,10 +29,37 @@ const getSingleCourse = async (req, res ) =>{
     } catch (error) {
         res.status(500).json({
             ERR_CODE : error.code,
-            message: "could not find this Course"
+            message: "Could not find this Course"
         })
     }
 }
 
 
-module.exports = {createCourse, getAllCourses, getSingleCourse}
+// @desc Update existing course
+// @route PUT api/v1/courses/update_course/:id
+// @access Private
+const updateCourse = async (req, res) => {
+    try {
+        const data = req.body
+        const id = req.params.id
+        const updatedCourse = await Course.updateOne({_id: id}, data)
+        res.json(updatedCourse)
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+// @desc Delete single course
+// @route DELETE api/v1/courses/delete_course/:id
+// @access Private
+const deleteCourse = async (req, res) => {
+    try {
+        const id = req.params.id
+        const deleted = await Course.deleteOne({_id: id})
+        res.json(deleted)
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+module.exports = { getAllCourses, getSingleCourse, updateCourse, deleteCourse}

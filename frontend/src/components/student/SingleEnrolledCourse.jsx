@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+// import UserSideBar from "../layout/UserSideBar"
 
 function SingleEnrolledCourse(props) {
   const [details, setDetails] = useState({});
@@ -18,6 +19,7 @@ function SingleEnrolledCourse(props) {
                 .delete(`http://localhost:4000/api/v1/enrolle/deleteEnrolledCourse/${props.id2}`)
                 .then((response) => {
                     console.log(response.data);
+                    props.counter(props.count + 1)
                 }).catch(err=>console.error(err))
   }             
 
@@ -28,6 +30,7 @@ function SingleEnrolledCourse(props) {
   return (
     <div>
         <div className="container" style={{ height: "0px" }}></div>
+        
 
             <div className="container"></div>
 

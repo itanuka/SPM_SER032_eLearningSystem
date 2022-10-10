@@ -45,7 +45,7 @@ function AdminHome() {
 
                             <div class="col mb-4">
                                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                                    <div class="card-header text-center">Manage Teachers</div>
+                                    <div class="card-header text-center">achers</div>
                                     <div class="card-body">
                                         <a href="" className="custom-size"><i class=" fas fa-users"></i></a>
                                     </div>

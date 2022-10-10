@@ -85,7 +85,7 @@ export const ViewAllTeachers = () => {
                                 onClick={() => {
                                   Swal.fire({
                                     title: "Warning!",
-                                    text: "Do you want to delete this book?",
+                                    text: "Do you want to delete this teacher?",
                                     icon: "warning",
                                     showCancelButton: true,
                                     confirmButtonText: "Ok",

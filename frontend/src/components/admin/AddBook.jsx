@@ -13,6 +13,7 @@ function AddBook() {
     const [pages, setPages] = useState(0);
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
+    const [book, setbook] = useState();
     const [file, setFile] = useState();
 
     const navigate = useNavigate();
@@ -35,8 +36,8 @@ function AddBook() {
         data.append("pages", pages);
         data.append("category", category);
         data.append("description", description);
-        data.append("file", file);
-
+        data.append("file2", book);
+        data.append("file1", file);
 
         await axios.post('http://localhost:4000/api/v1/books/uploadBook', data)
             .then((res) => {
@@ -44,13 +45,13 @@ function AddBook() {
             })
             .catch((err) => { console.error(err) })
 
-        Swal.fire({
+        await Swal.fire({
             title: 'Upload Successfully',
             icon: "success",
             showConfirmButton: false,
             timer: 1500
         })
-       window.location = "/library/viewAllBooks";
+        window.location = "/library/viewAllBooks";
     };
 
     return (
@@ -200,7 +201,9 @@ function AddBook() {
                                                     <label htmlFor="inputFile">Upload Book</label>
                                                     <input
                                                         type="file"
+                                                        name="file2"
                                                         className="form-control"
+                                                        onChange={e => { setbook(e.target.files[0]) }}
                                                         required
                                                     />
                                                 </div>
@@ -211,6 +214,7 @@ function AddBook() {
                                                     <label htmlFor="inputFile">Cover Photo</label>
                                                     <input
                                                         type="file"
+                                                        name="file1"
                                                         className="form-control"
                                                         onChange={e => { setFile(e.target.files[0]) }}
                                                         required

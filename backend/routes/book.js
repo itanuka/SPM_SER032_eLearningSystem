@@ -40,11 +40,16 @@ const upload = multer({
 });
 
 
-bookRouter.post("/uploadBook", upload.single("file"), async (req, res) => {
+bookRouter.post("/uploadBook", upload.fields([{ name: "file1" }, { name: "file2" }]), async (req, res) => {
   try {
 
     const { title, isbn, author, publishDate, publisher, pages, category, description } = req.body
-    const { path, mimetype } = req.file;
+    const coverPath = req.files.file1[0].path;
+    const coverMimetype = req.files.file1[0].mimetype;
+    const bookPath = req.files.file2[0].path;
+    const bookMimetype = req.files.file2[0].mimetype;
+
+
     const newBook = new Book({
       title: title,
       isbn: isbn,
@@ -54,8 +59,10 @@ bookRouter.post("/uploadBook", upload.single("file"), async (req, res) => {
       pages: pages,
       category: category,
       description: description,
-      file_path: path,
-      file_mimetype: mimetype
+      cover_file_path: coverPath,
+      cover_file_mimetype: coverMimetype,
+      book_file_path: bookPath,
+      book_file_mimetype: bookMimetype
     })
 
     await newBook.save()
