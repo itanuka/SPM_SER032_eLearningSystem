@@ -9,6 +9,7 @@ function ViewCourseMaterial() {
 
   const[materials, setMaterials] = useState([])
   const {courseID} = useParams();
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [errorMsg, setErrorMsg] = useState('');
 
   async function getCourseMaterial() {
@@ -37,6 +38,11 @@ function ViewCourseMaterial() {
     }
   };
 
+  // setting the list of course material that matches with the search keyword
+  const filteredCourseMaterialList = materials.filter((material) => {
+    return material.course_name.toLowerCase().includes(searchKeyword.toLowerCase())
+  })
+
   useEffect(()=>{
     getCourseMaterial()
   }, [])
@@ -52,7 +58,7 @@ function ViewCourseMaterial() {
             <th>  </th>
           </thead>
           <tbody>
-            {materials.map(material=>{
+            {filteredCourseMaterialList.map(material=>{
               return(
                 <tr key= { material._id }>
                   <td> { material.title } </td>
