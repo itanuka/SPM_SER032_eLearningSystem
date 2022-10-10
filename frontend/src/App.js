@@ -26,6 +26,7 @@ import Footer from "./components/layout/Footer";
 import AdminHome from "./components/admin/AdminHome";
 import StudentHome from "./components/student/StudentHome";
 import TeacherHome from "./components/teacher/TeacherHome";
+import GenerateBookReport from "./components/admin/GenerateBookReport";
 
 
 
@@ -78,6 +79,7 @@ const App = () => {
             <Route path="/library/viewAllBooks/updateBookDetails/:id" element={<UpdateBook />}></Route>
             <Route path="/library/UserviewAllBooks" element={<UserViewAllBooks />}></Route>
             <Route path="/library/UserViewAllBooks/getBookDetails/:id" element={<UserViewBook />}></Route>
+            <Route path="/library/UserViewAllBooks/generateBookReport" element={<GenerateBookReport />}></Route>
 
             {/* Libarary-management */}
 
