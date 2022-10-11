@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const ViewAllStudents = () => {
 
   const [students, setStudents] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const navigate = useNavigate();
 
   const loadStudents = async () => {
@@ -17,6 +18,10 @@ export const ViewAllStudents = () => {
         console.log(err);
       })
   }
+
+  const filteredStudentList = students.filter((student) => {
+    return student.email.toLowerCase().includes(searchKeyword.toLowerCase())
+  })
 
   async function deleteStudent(id) {
     await axios.delete(`http://localhost:4000/api/v1/students/${id}`)
@@ -31,6 +36,11 @@ export const ViewAllStudents = () => {
 
   return (
     <div className='container'>
+      <input placeholder='Search by email'
+        onChange={(e) => {
+          setSearchKeyword(e.target.value)
+        }}
+      />
       <table className='table table-hover my-3'>
         <thead className='thead-dark'>
           <th> First Name </th>
@@ -44,7 +54,7 @@ export const ViewAllStudents = () => {
           <th> </th>
         </thead>
         <tbody>
-          {students.map(student => {
+          {filteredStudentList.map(student => {
             return (
               <tr key={student._id}>
                 <td> {student.firstName} </td>
