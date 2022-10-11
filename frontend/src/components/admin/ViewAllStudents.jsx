@@ -95,6 +95,13 @@ export const ViewAllStudents = () => {
           })}
         </tbody>
       </table>
+      <button className='btn btn-primary'
+        onClick={() => {
+          navigate(`/students/report`)
+        }}
+      >
+        Get All Students Report
+      </button>
     </div>
   );
 }
