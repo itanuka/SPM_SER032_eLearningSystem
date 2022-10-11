@@ -34,6 +34,7 @@ import CourseMaterialTeacherView from "./components/teacher/course material/Cour
 import GenerateCourseMaterialReport from "./components/teacher/course material/GenerateCourseMaterialReport";
 import ViewCourseMaterial from "./components/student/ViewCourseMaterial";
 import GenerateStudentReport from "./components/admin/GenerateStudentReport";
+import GenerateTeachersReport from "./components/admin/GenerateTeachersReport";
 
 
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
             <Route path="/students" element={<ViewAllStudents />}></Route>
             <Route path="/students/report" element={<GenerateStudentReport />}></Route>
             <Route path="/teachers" element={<ViewAllTeachers />}></Route>
+            <Route path="/teachers/report" element={<GenerateTeachersReport />}></Route>
             <Route path="/students/changePassword/:id" element={<ChangeStudentPassword />}></Route>
             <Route path="/teachers/changePassword/:id" element={<ChangeTeacherPassword />}></Route>
 
