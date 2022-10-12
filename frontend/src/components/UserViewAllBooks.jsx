@@ -9,6 +9,7 @@ function UserViewAllBooks() {
     let navigate = useNavigate();
 
     const [books, setBooks] = useState([]);
+    const [searchKeyword, setSearchKeyword] = useState("");
 
     const loadBooks = async () => {
         await axios.get("http://localhost:4000/api/v1/books/getAllBooks")
@@ -25,6 +26,8 @@ function UserViewAllBooks() {
         loadBooks()
     }, []);
 
+    const fiteredBookList = books.filter(book => book.title.toLowerCase().includes(searchKeyword.toLowerCase()))
+
     return (
         <div>
 
@@ -38,10 +41,21 @@ function UserViewAllBooks() {
                         <h1 className="text-center">Digital Library</h1>
                     </div>
                     <div className="container mt-5">
+                        <div className="row">
+                            <div className="col-md-5"></div>
+                            <div className="col-md-4"></div>
+                            <div className="col-md-3">
+                                <input type="text" placeholder="Search by book title"
+                                    style={{ width: "200px" }}
+                                    className="ml-5"
+                                    onChange={(e) => setSearchKeyword(e.target.value)}
+                                />
+                            </div>
+                        </div>
 
-                        <div class="row row-cols-1 row-cols-md-3">
+                        <div class="row row-cols-1 row-cols-md-3 mt-4">
                             {
-                                books.map((book) => {
+                                fiteredBookList.map((book) => {
 
                                     let link = `/uploads/${book.file_path.substring(27)}`
                                     return (
