@@ -8,6 +8,7 @@ export const ViewAllTeachers = () => {
   let navigate = useNavigate();
 
   const [teachers, setTeachers] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   const getTeachers = async () => {
     await axios.get("http://localhost:4000/api/v1/teachers")
@@ -19,6 +20,10 @@ export const ViewAllTeachers = () => {
         console.log(err);
       })
   }
+
+  const filteredTeacherList = teachers.filter((teacher) => {
+    return teacher.email.toLowerCase().includes(searchKeyword.toLowerCase())
+  })
 
   const deleteTeacher = async (id) => {
     await axios.delete(`http://localhost:4000/api/v1/teachers/${id}`);
@@ -46,6 +51,9 @@ export const ViewAllTeachers = () => {
             <div className="row">
 
               <div className="col-md">
+                <input type="text" placeholder="Search by email"
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                />
                 <table className="table">
                   <thead>
                     <th>First Name</th>
@@ -61,7 +69,7 @@ export const ViewAllTeachers = () => {
                   </thead>
                   <tbody>
                     {
-                      teachers.map((teacher) => {
+                      filteredTeacherList.map((teacher) => {
                         return (
                           <tr>
                             <td>{teacher.firstName}</td>
