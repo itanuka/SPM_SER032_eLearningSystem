@@ -15,7 +15,6 @@ function UserViewAllBooks() {
         await axios.get("http://localhost:4000/api/v1/books/getAllBooks")
             .then((res) => {
                 setBooks(res.data);
-                console.log(res);
             })
             .catch((err) => {
                 console.log(err);
@@ -57,7 +56,7 @@ function UserViewAllBooks() {
                             {
                                 fiteredBookList.map((book) => {
 
-                                    let link = `/uploads/${book.file_path.substring(27)}`
+                                    let link = `/uploads/${book.cover_file_path.substring(27)}`
                                     return (
                                         <div >
                                             {
