@@ -12,6 +12,7 @@ function UserViewBook() {
     let navigate = useNavigate();
 
     const [book, setBook] = useState({});
+    const [link, setLink] = useState("");
     const { id } = useParams();
 
     const [title, setTitle] = useState(book.title);
@@ -33,6 +34,8 @@ function UserViewBook() {
             .then((res) => {
 
                 setBook(res.data);
+                setLink(`/uploads/${res.data.cover_file_path.substring(27)}`
+                )
                 console.log(res.data);
             })
             .catch(err => console.error(err))
@@ -61,7 +64,8 @@ function UserViewBook() {
     // let link = `/uploads/${book.cover_file_path.substring(27)}`
 
     return (
-        <div>
+
+        < div >
             <div className="row" style={{ maxWidth: "100%" }}>
                 <div className="col-md-2">
                     <UserSideBar />
@@ -81,7 +85,7 @@ function UserViewBook() {
                             <div className="col-md-5">
                                 <div class="card h-100" >
                                     <div class="col mb-4">
-                                        <img src="https://productimages.worldofbooks.com/0078821010.jpg"
+                                        <img src={link}
                                             className="card-img-top mt-3"
                                             // style={{width:"280px", height:"220px"}} 
                                             alt="..."
@@ -131,7 +135,7 @@ function UserViewBook() {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 
