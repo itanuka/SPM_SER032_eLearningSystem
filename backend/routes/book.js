@@ -1,5 +1,7 @@
+const path = require('path')
 const express = require('express');
 const bookRouter = express.Router();
+
 
 const { uploadBook, getSingleBookById, getAllBooks, updateBookDetails, deleteBook } = require('../controllers/bookController.js');
 
@@ -72,6 +74,19 @@ bookRouter.post("/uploadBook", upload.fields([{ name: "file1" }, { name: "file2"
     res.json(error)
   }
 })
+
+bookRouter.get('/download/:id', async (req, res) => {
+  try {
+    const file = await Book.findById(req.params.id);
+    res.set({
+      'Content-Type': file.book_file_mimetype
+
+    });
+    res.sendFile(path.join(__dirname, '..', file.book_file_path));
+  } catch (error) {
+    res.status(400).send('Error while downloading file. Try again later.');
+  }
+});
 
 // bookRouter.post('/uploadBook', uploadBook);
 bookRouter.post('uploadBook',)
