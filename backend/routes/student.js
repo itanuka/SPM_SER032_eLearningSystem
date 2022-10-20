@@ -7,6 +7,7 @@ const {
     updateStudent,
     deleteStudent,
     getStudent,
+    studentChangePassword
 } = require('../controllers/studentController');
 
 
@@ -41,5 +42,6 @@ router.route("/").post(upload.single("file"), registerStudent);
 router.route("/:id").get(getStudent);
 router.route("/:id").put(updateStudent);
 router.route("/:id").delete(deleteStudent);
+router.route("/studentChangePassword/:id").patch(studentChangePassword);
 
 module.exports = router;
