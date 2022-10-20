@@ -6,7 +6,8 @@ const {
     getAllTeachers,
     updateTeacher,
     deleteTeacher,
-    getTeacher
+    getTeacher,
+    teacherChangePassword
 } = require('../controllers/teacherController');
 
 const upload = multer({
@@ -39,5 +40,6 @@ router.route("/").post(upload.single("file"), registerTeacher);
 router.route("/:id").get(getTeacher);
 router.route("/:id").put(updateTeacher);
 router.route("/:id").delete(deleteTeacher);
+router.route("/teacherChangePassword/:id").patch(teacherChangePassword);
 
 module.exports = router;
