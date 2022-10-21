@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../UserContext';
 import '../style/teacherSideBar.css'
 
 export default function TeacherSideBar() {
+    const { user } = useContext(UserContext);
+
     return (
         <div>
             <div >
@@ -9,12 +12,12 @@ export default function TeacherSideBar() {
                     <nav id="sidebar">
                         <ul class="list-unstyled components">
                             <li>
-                                <a href=""><i class="fas fa-tachometer-alt"></i> xxxxx</a>
+                                <a href={`/teachers/update/${user.id}`}><i class="fas fa-tachometer-alt"></i> Update Profile</a>
                             </li>
 
                             <li>
-                                
-                                <a href=''><i class="fa-solid fa-file-circle-plus"></i>xxxxx </a>
+
+                                <a href={`/teachers/changePassword/${user.id}`}><i class="fa-solid fa-file-circle-plus"></i>Change Password </a>
                             </li>
 
 
