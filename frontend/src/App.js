@@ -26,12 +26,15 @@ import Footer from "./components/layout/Footer";
 import AdminHome from "./components/admin/AdminHome";
 import StudentHome from "./components/student/StudentHome";
 import TeacherHome from "./components/teacher/TeacherHome";
+import GenerateBookReport from "./components/admin/GenerateBookReport";
 import AddCourse from "./components/teacher/course/AddCourse";
 import ViewCourses from "./components/teacher/course/ViewCourses";
 import UploadCourseMaterial from "./components/teacher/course material/UploadCourseMaterial";
 import CourseMaterialTeacherView from "./components/teacher/course material/CourseMaterialTeacherView";
 import GenerateCourseMaterialReport from "./components/teacher/course material/GenerateCourseMaterialReport";
 import ViewCourseMaterial from "./components/student/ViewCourseMaterial";
+import GenerateStudentReport from "./components/admin/GenerateStudentReport";
+import GenerateTeachersReport from "./components/admin/GenerateTeachersReport";
 
 
 const App = () => {
@@ -61,9 +64,9 @@ const App = () => {
         <UserContext.Provider value={{ user, setUser, token }} >
           <Header />
           <Routes>
-          <Route path="/adminHome" element={<AdminHome />}></Route>
-          <Route path="/studentHome" element={<StudentHome />}></Route>
-          <Route path="/teacherHome" element={<TeacherHome />}></Route>
+            <Route path="/adminHome" element={<AdminHome />}></Route>
+            <Route path="/studentHome" element={<StudentHome />}></Route>
+            <Route path="/teacherHome" element={<TeacherHome />}></Route>
 
             <Route path="/registerStudent" element={<RegisterStudent />}></Route>
             <Route path="/login" element={<Login />}></Route>
@@ -71,7 +74,9 @@ const App = () => {
             <Route path="/registerTeacher" element={<RegisterTeacher />}></Route>
             <Route path="/teachers/update/:id" element={<UpdateTeacher />}></Route>
             <Route path="/students" element={<ViewAllStudents />}></Route>
+            <Route path="/students/report" element={<GenerateStudentReport />}></Route>
             <Route path="/teachers" element={<ViewAllTeachers />}></Route>
+            <Route path="/teachers/report" element={<GenerateTeachersReport />}></Route>
             <Route path="/students/changePassword/:id" element={<ChangeStudentPassword />}></Route>
             <Route path="/teachers/changePassword/:id" element={<ChangeTeacherPassword />}></Route>
 
@@ -81,28 +86,29 @@ const App = () => {
             <Route path="/library/viewAllBooks/updateBookDetails/:id" element={<UpdateBook />}></Route>
             <Route path="/library/UserviewAllBooks" element={<UserViewAllBooks />}></Route>
             <Route path="/library/UserViewAllBooks/getBookDetails/:id" element={<UserViewBook />}></Route>
+            <Route path="/library/UserViewAllBooks/generateBookReport" element={<GenerateBookReport />}></Route>
 
             {/* Libarary-management */}
 
-            
-             {/* Course-management */}
-          <Route path="/" element = {<StudentViewAllCourses/>}></Route>
-          <Route path="/course/ViewSingleCourse/:id" element = {<StudentViewCourse/>}></Route>
-          <Route path="/course/ViewEnrolledCourses" element = {<ViewEnrolledCourses/>}></Route>
 
-                {/* Teacher */}
-          <Route path="/teachers/addCourse" element={<AddCourse/>}/>
-          <Route path="/teachers/viewCourses" element={<ViewCourses/>}/>
-                {/* Teacher */}
+            {/* Course-management */}
+            <Route path="/" element={<StudentViewAllCourses />}></Route>
+            <Route path="/course/ViewSingleCourse/:id" element={<StudentViewCourse />}></Route>
+            <Route path="/course/ViewEnrolledCourses" element={<ViewEnrolledCourses />}></Route>
 
-          {/* Course-management */}
-          
-          {/* Course material-management */}
-          <Route path="/teachers/uploadCourseMaterial/:courseID" element={<UploadCourseMaterial/>}/>
-          <Route path="/teachers/viewCourseMaterial/:courseID" element={<CourseMaterialTeacherView/>}/>
-          <Route path="/teachers/generateCourseMaterialReport/:courseID" element={<GenerateCourseMaterialReport/>}/>
-          <Route path="/students/viewCourseMaterial/:courseID" element={<ViewCourseMaterial/>} />
-          {/* Course material-management */}
+            {/* Teacher */}
+            <Route path="/teachers/addCourse" element={<AddCourse />} />
+            <Route path="/teachers/viewCourses" element={<ViewCourses />} />
+            {/* Teacher */}
+
+            {/* Course-management */}
+
+            {/* Course material-management */}
+            <Route path="/teachers/uploadCourseMaterial/:courseID" element={<UploadCourseMaterial />} />
+            <Route path="/teachers/viewCourseMaterial/:courseID" element={<CourseMaterialTeacherView />} />
+            <Route path="/teachers/generateCourseMaterialReport/:courseID" element={<GenerateCourseMaterialReport />} />
+            <Route path="/students/viewCourseMaterial/:courseID" element={<ViewCourseMaterial />} />
+            {/* Course material-management */}
 
           </Routes>
           <Footer />

@@ -110,3 +110,17 @@ exports.deleteStudent = async (req, res) => {
         console.error(error)
     }
 };
+
+exports.studentChangePassword = async (req, res) => {
+
+    let id = req.params.id;
+
+    const password = await bcrypt.hash(req.body.password, 10);
+    req.body.password = password;
+
+    const student = await Student.findOne({ _id: id });
+    Object.assign(student, req.body)
+    student.save();
+    res.send(student);
+
+};

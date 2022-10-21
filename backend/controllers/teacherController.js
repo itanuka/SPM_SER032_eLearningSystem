@@ -113,3 +113,17 @@ exports.deleteTeacher = async (req, res) => {
         console.error(error)
     }
 };
+
+exports.teacherChangePassword = async (req, res) => {
+
+    let id = req.params.id;
+
+    const password = await bcrypt.hash(req.body.password, 10);
+    req.body.password = password;
+
+    const teacher = await Teacher.findOne({ _id: id });
+    Object.assign(teacher, req.body)
+    teacher.save();
+    res.send(teacher);
+
+};
