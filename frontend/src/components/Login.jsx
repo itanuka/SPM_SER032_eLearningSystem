@@ -35,7 +35,7 @@ export const Login = () => {
           showConfirmButton: false,
           timer: 1500
         }).then((value) => {
-          Swal.fire((window.location = "/"));
+          Swal.fire((window.location = "/studentHome"));
         });
 
       } else if (data.role === "Teacher") {
