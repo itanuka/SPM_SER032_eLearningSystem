@@ -5,11 +5,11 @@
 
 
 *Member Details :*
-| Name                  |Student Id| User Name|Feature|
-|Piyumantha H. P. A. H. |IT20149994|itanuka|user-management|
-|Prabhash D. V. S.      |IT20144012|PrabhashDVS|library-management|
-|Weerasinghe T. K.      |IT20148768|ZephyrClint|course-material-management|
-|Weerasiri R. T. K.     |IT20143718|Tharushakalinda|student-function-management|
+| Name | Student Id | User Name | Feature |
+|Piyumantha H. P. A. H.|IT20149994|itanuka|user-management|
+|Prabhash D. V. S.|IT20144012|PrabhashDVS|library-management|
+|Weerasinghe T. K.|IT20148768|ZephyrClint|course-material-management|
+|Weerasiri R. T. K.|IT20143718|Tharushakalinda|student-function-management|
 
 
 
