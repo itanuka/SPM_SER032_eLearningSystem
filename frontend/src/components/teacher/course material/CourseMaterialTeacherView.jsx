@@ -50,6 +50,9 @@ function CourseMaterialTeacherView() {
     
   return (
     <div className='container'>
+        <input type="text" placeholder='Search by course name'
+            onChange={(e)=>setSearchKeyword(e.target.value)}
+        />
         <table className='table table-hover'>
             <thead className='thead-dark'>
                 <th> Title </th>
